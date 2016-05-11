@@ -29,5 +29,6 @@ http://www.clickhere.nl/abalone/play/
 
 ##Theme Inspiration
 
-[Monument Valley Game](http://www.monumentvalleygame.com/)
+[Monument Valley Game](http://www.monumentvalleygame.com/)   
+
 [Monument Valley Design Analysis](http://nabauer.com/monument-valley-design-analysis/)
