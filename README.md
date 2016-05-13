@@ -32,3 +32,16 @@ http://www.clickhere.nl/abalone/play/
 [Monument Valley Game](http://www.monumentvalleygame.com/)   
 
 [Monument Valley Design Analysis](http://nabauer.com/monument-valley-design-analysis/)
+
+
+
+
+Data structure:
+
+empty cells as div circles with border radius 50%
+
+each element is an object
+
+each cell has a { Marble: 0} or {marble: 1} or {marble: -1}
+
+{marble: 1, ne:null, nw:null, e: 1, se: 6, sw: 5, w: null}
