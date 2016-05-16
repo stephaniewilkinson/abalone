@@ -1,14 +1,88 @@
+  {marble: null, w: 0, nw: null, ne: null, e: 2, se: 7, sw: 6},
+  {marble: null, w: 1, nw: null, ne: null, e: 3, se: 8, sw: 7},
+  {marble: null, w: 2, nw: null, ne: null, e: 4, se: 9, sw: 7},
+  {marble: null, w: 3, nw: null, ne: null, e: null, se: 9, sw: 10},
+  {marble: null, w: null, nw: null, ne: 0, e: 6, se: 11, sw: 12},
+  {marble: null, w: 5, nw: 0, ne: 1, e: 7, se: 13, sw: 12},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  {marble: null, w: 1, nw: null, ne: null, e: null, se: 6, sw: 5},
+  ];
+
+
 
 ////////
 //Data
 ////////
 
+
+var board = [
+  {marble: null, w: null, nw: null, ne: null, e: 1, se: 5, sw: 6},
+
+
+
 var selectedMarbles = [];
-var whoseTurn = null;
+var whoseTurn = 1;
+var direction = "ne";
 
 ////////
 //Functions
 ////////
+
+function getAdjacent(index, dir) {
+  return board[board[index][dir]];
+}
 
 
 function nextChar(c) {
@@ -35,6 +109,7 @@ var initializeGame = function(x) {
   var allRows = $('.row').map(allRowsMap);
   console.log(allRows);
 }
+
 
 var moveNE = function(marble) {
   var x = nextChar($(marble).data('x'));
@@ -81,7 +156,7 @@ var moveNW = function(marble) {
 
 
 var allRows = $('.row').map(allRowsMap);
-console.log(allRows);
+ console.log(allRows);
 
 
 ////////
@@ -90,8 +165,21 @@ console.log(allRows);
 
 
 var addMarble = function(x) {
-  selectedMarbles.push(this);
-  $(this).css('background-color', '#95ab63');
+
+  console.log( ($(this).text()) );
+  console.log(whoseTurn);
+
+  if (selectedMarbles.length < 3) {
+      if (whoseTurn == ($(this).text()) ) {
+      $(this).css('border-width', '50px');
+      selectedMarbles.push(this);
+    } else if (whoseTurn !== ($(this).text()) ) {
+      $(this).css('border-width', '5px');
+      selectedMarbles.push(this);
+    } else {
+      alert("that's not your marble");
+    }
+  }
 };
 
 $( ".cell").click(addMarble);
@@ -99,7 +187,23 @@ $( ".cell").click(addMarble);
 
 
 
-console.log(selectedMarbles);
+// console.log(selectedMarbles);
+
+// cell = 1;
+
+
+// var sel = '[index=' + cell + ']';
+
+// $('index' + cell + '')
+
+
+// render
+
+// $('#'' + id).css('backgroundColor', 'red');
+
+
+var cell = 1;
+$('[index="' + cell + '"]').css('background-color', 'red');
 
 
 
