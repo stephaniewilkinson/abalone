@@ -1,5 +1,5 @@
 .cell {
-  border: 1px solid black;
+  border: 1px solid #10222b;
   width: 40px;
   height: 40px;
   display: inline-block;
@@ -11,4 +11,9 @@
 .row {
   margin: 0 auto;
   text-align: center;
+}
+
+
+body {
+  background-color: #f6ffe0;
 }
