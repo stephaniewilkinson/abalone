@@ -6,7 +6,7 @@ var board;
 var selectedMarbles;
 var whoseTurn;
 var direction;
-var validNeighbors;
+var validNeighbors = [];
 
 ////////
 //Functions
@@ -25,13 +25,13 @@ function initBoard() {
     {marble: 1, w: 7,    nw: 2,    ne: 3,    e: 9,     se: 15,   sw: 14},
     {marble: 1, w: 8,    nw: 3,    ne: 4,    e: 10,    se: 16,   sw: 15},
     {marble: 1, w: 9,    nw: 4,    ne: null, e: null,  se: 17,   sw: 16},
-    {marble: null, w: null, nw: null, ne: 5,    e: 12,    se: 19,   sw: 18},
+    {marble: null, w:    null, nw: null, ne: 5,    e: 12,    se: 19,   sw: 18},
     {marble: null, w: 11,   nw: 5,    ne: 6,    e: 13,    se: 20,   sw: 19},
-    {marble: 1, w: 12,   nw: 6,    ne: 7,    e: 14,    se: 21,   sw: 20},
-    {marble: 1, w: 13,   nw: 7,    ne: 8,    e: 15,    se: 22,   sw: 21},
-    {marble: 1, w: 14,   nw: 8,    ne: 9,    e: 16,    se: 23,   sw: 22},
+    {marble: 1, w: 12,   nw: 6,    ne: 7,    e: 14,        se: 21,   sw: 20},
+    {marble: 1, w: 13,   nw: 7,    ne: 8,    e: 15,       se: 22,   sw: 21},
+    {marble: 1, w: 14,   nw: 8,    ne: 9,    e: 16,       se: 23,   sw: 22},
     {marble: null, w: 15,   nw: 9,    ne: 10,   e: 17,    se: 24,   sw: 23},
-    {marble: null, w: 16,   nw: 10,   ne: null, e: null,  se: 25,   sw: 24},
+    {marble: null, w: 16,   nw: 10,   ne: null, e: null, se: 25,   sw: 24},
     {marble: null, w: null, nw: null, ne: 11,   e: 19,    se: 26,   sw: 26},
     {marble: null, w: 18,   nw: 11,   ne: 12,   e: 20,    se: 27,   sw: 27},
     {marble: null, w: 19,   nw: 12,   ne: 13,   e: 21,    se: 28,   sw: 28},
@@ -78,6 +78,14 @@ function initBoard() {
     ];
 }
 
+var initializeGame = function() {
+  direction = "";
+  whoseTurn = -1;
+  selectedMarbles = [];
+  initBoard();
+  renderBoard();
+}
+
 function getAdjacent(index, dir) {
   return board[board[index][dir]];
 }
@@ -101,15 +109,7 @@ function findValidNeighbors(index) {
   if (board[board[index]['w']]) {
     validNeighbors.push(board[board[index]['w']])
   }
-  console.log(validNeighbors);
-}
-
-var initializeGame = function() {
-  direction = "";
-  whoseTurn = -1;
-  selectedMarbles = [];
-  initBoard();
-  renderBoard();
+  return validNeighbors;
 }
 
 function renderBoard() {
@@ -131,22 +131,32 @@ function getCellIndex(el) {
   return parseInt($(el).attr('index'));
 }
 
+
+
 function moveMarbles() {
   selectedMarbles.forEach(function(marbleIdx) {
     var nextIndex = board[marbleIdx][direction];
     board[nextIndex].marble = board[marbleIdx].marble;
-    board[marbleIdx].marble = null;
   });
+  board[marbleIdx].marble = null;
   renderBoard();
   selectedMarbles = [];
 };
+
+function afterClick(x) {
+  validNeighbors = [];
+  var cellIndex = getCellIndex(x);
+  findValidNeighbors(cellIndex);
+  console.log(validNeighbors);
+  $.each(validNeighbors, function(index, value) {
+  $(this).addClass("neighbor"); });
+}
 
 
 
 ////////
 //Event Listeners
 ////////
-
 
 $( ".cell").click(function(evt) {
     if (selectedMarbles.length < 3) {
@@ -158,12 +168,20 @@ $( ".cell").click(function(evt) {
       if ($.inArray(cellIndex, selectedMarbles) === -1) {
           $(this).addClass("clicked");
           selectedMarbles.push(cellIndex);
+          selectedMarbles.sort(function(a, b) {
+            return a-b;
+          });
+          console.log(selectedMarbles);
           $(this).removeClass('clickable');
         };
     };
 });
 
-// if(jQuery.inArray("test", myarray) !== -1)
+
+$('.cell').click(function(evt) {
+  var cellIndex = getCellIndex(this);
+  afterClick(this);
+});
 
 
 $('.moveArrow').on('click', function(evt) {
@@ -171,6 +189,5 @@ $('.moveArrow').on('click', function(evt) {
   moveMarbles();
   console.log(this);
 });
-
 
 initializeGame();

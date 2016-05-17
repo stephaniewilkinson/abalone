@@ -7,10 +7,6 @@
   margin: 5px;
 }
 
-.cell:hover {
-  -webkit-filter: opacity(30%);
-}
-
 .row {
   margin: 0 auto;
   text-align: center;
@@ -22,13 +18,13 @@ cursor: pointer;
 }
 
 .p1 {
-  background-color: #bdf271;
-  opacity: 0.5;
+  background-color: red;
+  opacity: 0.25;
 }
 
 .p2 {
-  background-color: #01a2a6;
-  opacity: 0.5;
+  background-color: blue;
+  opacity: 0.25;
 }
 
 .clicked {
@@ -38,6 +34,11 @@ cursor: pointer;
 
 .clickable {
   cursor: pointer;
+  opacity: 0.25;
+}
+
+.clickable:hover {
+  -webkit-filter: opacity(30%);
 }
 
 .element {
@@ -47,7 +48,7 @@ cursor: pointer;
 @keyframes pulse {
   0% {
     background-color: inherit;
-    opacity: 0.25;
+    opacity: 0.75;
   }
   100% {
     background-color: inherit;
@@ -58,4 +59,8 @@ button {
   width: 100px;
   height: 100px;
   border-radius: 50%;
+}
+
+.rotatedir {
+  transform: rotate(45deg);
 }
