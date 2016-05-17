@@ -6,6 +6,7 @@ var board;
 var selectedMarbles;
 var whoseTurn;
 var direction;
+var validNeighbors;
 
 ////////
 //Functions
@@ -81,6 +82,28 @@ function getAdjacent(index, dir) {
   return board[board[index][dir]];
 }
 
+function findValidNeighbors(index) {
+  if (board[board[index]['nw']]) {
+    validNeighbors.push(board[board[index]['nw']])
+  }
+  if (board[board[index]['ne']]) {
+    validNeighbors.push(board[board[index]['ne']])
+  }
+  if (board[board[index]['e']]) {
+    validNeighbors.push(board[board[index]['e']])
+  }
+  if (board[board[index]['se']]) {
+    validNeighbors.push(board[board[index]['se']])
+  }
+  if (board[board[index]['sw']]) {
+    validNeighbors.push(board[board[index]['sw']])
+  }
+  if (board[board[index]['w']]) {
+    validNeighbors.push(board[board[index]['w']])
+  }
+  console.log(validNeighbors);
+}
+
 var initializeGame = function() {
   direction = "";
   whoseTurn = -1;
@@ -146,10 +169,8 @@ $( ".cell").click(function(evt) {
 $('.moveArrow').on('click', function(evt) {
   direction = $(this).attr('dir');
   moveMarbles();
+  console.log(this);
 });
 
-$("button").click(function(){
-    $("p").toggleClass("main");
-});
 
 initializeGame();
