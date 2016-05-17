@@ -3,6 +3,13 @@
 ////////
 
 var board;
+var selectedMarbles;
+var whoseTurn;
+var direction;
+
+////////
+//Functions
+////////
 
 function initBoard() {
   board = [
@@ -70,44 +77,25 @@ function initBoard() {
     ];
 }
 
-var selectedMarbles;
-var whoseTurn;
-var direction;
-
-////////
-//Functions
-////////
-
 function getAdjacent(index, dir) {
   return board[board[index][dir]];
 }
 
-
-function   nextChar(c) {
-    return String.fromCharCode(c.charCodeAt(0) + 1);
-}
-
-function prevChar(c) {
-    return String.fromCharCode(c.charCodeAt(0) - 1);
-}
-
-var allRowsMap = function() {
-    return $.trim($(this).text());
-}
-
 var initializeGame = function() {
   direction = "";
-  whoseTurn = 1;
+  whoseTurn = -1;
   selectedMarbles = [];
   initBoard();
   renderBoard();
 }
 
-
 function renderBoard() {
+  whoseTurn *= -1;
   board.forEach(function(cell, idx) {
     var $cellEl = $('[index="' + idx + '"]');
-    $cellEl.removeClass('p1 p2');
+    $cellEl.removeClass('p1 p2 clickable clicked');
+    if (cell.marble === whoseTurn) {
+      $cellEl.addClass('clickable'); }
     if (cell.marble === 1 ) {
       $cellEl.addClass('p1');
     } else if (cell.marble === -1) {
@@ -120,44 +108,44 @@ function getCellIndex(el) {
   return parseInt($(el).attr('index'));
 }
 
+function moveMarbles() {
+  selectedMarbles.forEach(function(marbleIdx) {
+    var nextIndex = board[marbleIdx][direction];
+    board[nextIndex].marble = board[marbleIdx].marble;
+    board[marbleIdx].marble = null;
+  });
+  renderBoard();
+  selectedMarbles = [];
+};
 
 ////////
 //Event Listeners
 ////////
 
 
-var addMarble = function(x) {
-
-  console.log( ($(this).text()) );
-  console.log(whoseTurn);
-
-  if (selectedMarbles.length < 3) {
-      if (whoseTurn == ($(this).text()) ) {
-      $(this).css('border-width', '50px');
-      selectedMarbles.push(this);
-    } else if (whoseTurn !== ($(this).text()) ) {
-      $(this).css('border-width', '5px');
-      selectedMarbles.push(this);
-    } else {
-      alert("that's not your marble");
-    }
-  }
-};
-
 $( ".cell").click(function(evt) {
-  var cellIndex = getCellIndex(this);
-  // ignore clicks on empty cells
-  if (board[cellIndex)].marble === null) return;
-  console.log(board[cellIndex].marble);
-  selectedMarbles.push(cellIndex);
+  if (selectedMarbles.length < 3) {
+    var cellIndex = getCellIndex(this);
+    // ignore clicks on empty cells
+    if (board[cellIndex].marble === null) return;
+    if (board[cellIndex].marble !== whoseTurn) return;
+    // check that marble clicked is not already in selectedMarbles array
+    if ($.inArray(cellIndex, selectedMarbles)) {
+      $(this).toggleClass("clicked");
+      selectedMarbles.push(cellIndex);
+    }
+    // $(this).toggleClass("clicked");
+    // selectedMarbles.push(cellIndex);
+  };
 });
-
- console.log(selectedMarbles);
 
 $('.moveArrow').on('click', function(evt) {
   direction = $(this).attr('dir');
   moveMarbles();
-  console.log(direction);
+});
+
+$("button").click(function(){
+    $("p").toggleClass("main");
 });
 
 initializeGame();

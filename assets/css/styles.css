@@ -1,10 +1,10 @@
 .cell {
-  border: 1px solid #10222b;
-  width: 40px;
-  height: 40px;
+  box-sizing: border-box;
+  width: 60px;
+  height: 60px;
   display: inline-block;
   border-radius: 50%;
-  padding: 10px;
+  background-color: lightgray;
 }
 
 .row {
@@ -12,20 +12,18 @@
   text-align: center;
 }
 
-
-body {
-  background-color: #ffffed;
-}
-
-
 .p1 {
   background-color: #bdf271;
-  cursor: pointer;
-
 }
 
 .p2 {
   background-color: #01a2a6;
-  cursor: pointer;
+}
 
+.clicked {
+  border: 1px solid #10222b;
+}
+
+.clickable {
+  cursor: pointer;
 }
