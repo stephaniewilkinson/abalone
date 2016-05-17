@@ -1,10 +1,14 @@
 .cell {
-  box-sizing: border-box;
-  width: 60px;
-  height: 60px;
+  width: 75px;
+  height: 75px;
   display: inline-block;
   border-radius: 50%;
   background-color: lightgray;
+  margin: 5px;
+}
+
+.cell:hover {
+
 }
 
 .row {

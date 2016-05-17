@@ -124,20 +124,22 @@ function moveMarbles() {
 
 
 $( ".cell").click(function(evt) {
-  if (selectedMarbles.length < 3) {
-    var cellIndex = getCellIndex(this);
-    // ignore clicks on empty cells
-    if (board[cellIndex].marble === null) return;
-    if (board[cellIndex].marble !== whoseTurn) return;
-    // check that marble clicked is not already in selectedMarbles array
-    if ($.inArray(cellIndex, selectedMarbles)) {
-      $(this).toggleClass("clicked");
-      selectedMarbles.push(cellIndex);
-    }
-    // $(this).toggleClass("clicked");
-    // selectedMarbles.push(cellIndex);
-  };
+    if (selectedMarbles.length < 3) {
+      var cellIndex = getCellIndex(this);
+      // ignore clicks on empty cells
+      if (board[cellIndex].marble === null) return;
+      if (board[cellIndex].marble !== whoseTurn) return;
+      // check that marble clicked is not already in selectedMarbles array
+      if ($.inArray(cellIndex, selectedMarbles) === -1) {
+          $(this).addClass("clicked");
+          selectedMarbles.push(cellIndex);
+          $(this).removeClass('clickable');
+        };
+    };
 });
+
+// if(jQuery.inArray("test", myarray) !== -1)
+
 
 $('.moveArrow').on('click', function(evt) {
   direction = $(this).attr('dir');
