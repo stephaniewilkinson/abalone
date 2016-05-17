@@ -10,8 +10,7 @@
 }
 
 .cell:hover {
--webkit-filter: opacity(30%);
-
+  -webkit-filter: opacity(30%);
 }
 
 .row {
@@ -21,16 +20,33 @@
 
 .p1 {
   background-color: #bdf271;
+  opacity: 0.5;
 }
 
 .p2 {
   background-color: #01a2a6;
+  opacity: 0.5;
 }
 
 .clicked {
-  border: 1px solid #10222b;
+  animation: pulse 500ms 1;
+  opacity: 1;
 }
 
 .clickable {
   cursor: pointer;
+}
+
+.element {
+  animation: pulse 5s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    background-color: inherit;
+    opacity: 0.25;
+  }
+  100% {
+    background-color: inherit;
+  }
 }

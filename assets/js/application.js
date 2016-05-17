@@ -1,4 +1,4 @@
-////////
+  ////////
 //Data
 ////////
 
@@ -117,6 +117,8 @@ function moveMarbles() {
   renderBoard();
   selectedMarbles = [];
 };
+
+
 
 ////////
 //Event Listeners
