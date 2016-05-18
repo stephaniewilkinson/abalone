@@ -132,20 +132,20 @@ function getOppDir(dir) {
   if (dir === 'w') return 'e';
 }
 
-function findValidDirs() {
-  if (selectedMarbles.length === 1) {
-    if(!board[board[selectedMarbles[0]].nw]) {
-      return 'nw'
-    };
-    if(!board[board[selectedMarbles[0]].ne]) {
+// function findValidDirs() {
+//   if (selectedMarbles.length === 1) {
+//     if(!board[board[selectedMarbles[0]].nw]) {
+//       return 'nw'
+//     };
+//     if(!board[board[selectedMarbles[0]].ne]) {
 
-    };
-    console.log(board[board[selectedMarbles[0]].e]);
-    console.log(board[board[selectedMarbles[0]].se]);
-    console.log(board[board[selectedMarbles[0]].sw]);
-    console.log(board[board[selectedMarbles[0]].w]);
-  };
-};
+//     };
+//     console.log(board[board[selectedMarbles[0]].e]);
+//     console.log(board[board[selectedMarbles[0]].se]);
+//     console.log(board[board[selectedMarbles[0]].sw]);
+//     console.log(board[board[selectedMarbles[0]].w]);
+//   };
+// };
 
 function renderBoard() {
   board.forEach(function(cell, idx) {
