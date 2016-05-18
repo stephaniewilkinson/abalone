@@ -7,6 +7,7 @@ var selectedMarbles;
 var whoseTurn;
 var direction;
 var valids = [];
+var validDirs;
 
 ////////
 //Functions
@@ -104,16 +105,45 @@ function findValidMarbles(index) {
     if (board[(cell.se)] && board[(cell.se)].marble === whoseTurn) valids.push(cell.se);
     if (board[(cell.sw)] && board[(cell.sw)].marble === whoseTurn) valids.push(cell.sw);
     if (board[(cell.w)] && board[(cell.w)].marble === whoseTurn) valids.push(cell.w);
-  } else {
+  } else if (selectedMarbles.length === 2) {
+    var dir = getTopDir();
 
+    if (board[selectedMarbles[0]][dir] &&  board[board[selectedMarbles[0]][dir]].marble === whoseTurn){
+      valids.push(board[selectedMarbles[0]][dir]);
+    };
+    dir = getOppDir(dir);
+    if (board[selectedMarbles[1]][dir] && board[board[selectedMarbles[1]][dir]].marble == whoseTurn){
+      valids.push(board[selectedMarbles[1]][dir]);
+    };
   };
   return valids;
 }
 
+function getTopDir() {
+  var cell2 = board[selectedMarbles[1]];
+  if (cell2.nw === selectedMarbles[0]) return 'nw';
+  if (cell2.ne === selectedMarbles[0]) return 'ne';
+  if (cell2.w === selectedMarbles[0]) return 'w';
+};
+
+
+function getOppDir(dir) {
+  if (dir === 'nw') return 'se';
+  if (dir === 'ne') return 'sw';
+  if (dir === 'e') return 'w';
+  if (dir === 'se') return 'nw';
+  if (dir === 'sw') return 'ne';
+  if (dir === 'w') return 'e';
+}
+
+function findValidDirs() {
+
+};
+
 function renderBoard() {
   board.forEach(function(cell, idx) {
     var $cellEl = $('[index="' + idx + '"]');
-    $cellEl.removeClass('p1 p2 clickable');
+    $cellEl.removeClass('p1 p2 clickable clicked');
     if (cell.marble === whoseTurn && selectedMarbles.length === 0) {
       $cellEl.addClass('clickable'); }
     if (cell.marble === 1) {
@@ -126,7 +156,6 @@ function renderBoard() {
 }
 
 function renderValids() {
-  console.log(valids);
   valids.forEach(function(validIdx) {
     var $cellEl = $('[index="' + validIdx + '"]');
       $cellEl.addClass('clickable');
@@ -167,10 +196,10 @@ $( ".cell").click(function(evt) {
       if ($.inArray(cellIndex, selectedMarbles) === -1) {
           $(this).addClass("clicked");
           selectedMarbles.push(cellIndex);
-          findValidMarbles(cellIndex);
           selectedMarbles.sort(function(a, b) {
             return a-b;
           });
+          findValidMarbles(cellIndex);
         };
     };
     renderBoard();
