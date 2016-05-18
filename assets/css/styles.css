@@ -29,31 +29,20 @@ cursor: pointer;
 
 .clicked {
   animation: pulse 500ms 1;
-  opacity: 1;
+  opacity: 1.0;
+  background-color: peachpuff;
 }
 
 .clickable {
   cursor: pointer;
-  opacity: 0.25;
+  opacity: 0.5;
+  background-color: red;
 }
 
 .clickable:hover {
   -webkit-filter: opacity(30%);
 }
 
-.element {
-  animation: pulse 5s infinite;
-}
-
-@keyframes pulse {
-  0% {
-    background-color: inherit;
-    opacity: 0.75;
-  }
-  100% {
-    background-color: inherit;
-  }
-}
 
 button {
   width: 100px;

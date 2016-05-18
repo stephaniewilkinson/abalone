@@ -91,32 +91,28 @@ function getAdjacent(index, dir) {
 }
 
 function findValidMarbles(index) {
-  valids.forEach(function(validIdx) {
-    var $cellEl = $('[index="' + validIdx + '"]');
-    $cellEl.removeClass('clickable');
-  });
-  valids = [];
+   valids = [];
   if (selectedMarbles.length === 1) {
     var cell = board[index];
-    if (board[(cell.nw)] && board[(cell.nw)].marble === whoseTurn) valids.push(cell.nw);
-    if (board[(cell.ne)] && board[(cell.ne)].marble === whoseTurn && board[(cell.ne)]) valids.push(cell.ne);
-    if (board[(cell.e)] && board[(cell.e)].marble === whoseTurn) valids.push(cell.e);
-    if (board[(cell.se)] && board[(cell.se)].marble === whoseTurn) valids.push(cell.se);
-    if (board[(cell.sw)] && board[(cell.sw)].marble === whoseTurn) valids.push(cell.sw);
-    if (board[(cell.w)] && board[(cell.w)].marble === whoseTurn) valids.push(cell.w);
-  } else {
-
-  };
+    console.log(board[cell.se].marble);
+    console.log(whoseTurn);
+    if (board[(cell.nw)].marble === whoseTurn) valids.push(cell.nw);
+    if (board[(cell.ne)].marble === whoseTurn) valids.push(cell.ne);
+    if (board[(cell.e)].marble === whoseTurn) valids.push(cell.e);
+    if (board[(cell.se)].marble === whoseTurn) valids.push(cell.se);
+    if (board[(cell.sw)].marble === whoseTurn) valids.push(cell.sw);
+    if (board[(cell.w)].marble === whoseTurn) valids.push(cell.w);
+  }
   return valids;
 }
 
 function renderBoard() {
   board.forEach(function(cell, idx) {
     var $cellEl = $('[index="' + idx + '"]');
-    $cellEl.removeClass('p1 p2 clickable');
-    if (cell.marble === whoseTurn && selectedMarbles.length === 0) {
+    $cellEl.removeClass('p1 p2 clickable clicked');
+    if (cell.marble === whoseTurn) {
       $cellEl.addClass('clickable'); }
-    if (cell.marble === 1) {
+    if (cell.marble === 1 ) {
       $cellEl.addClass('p1');
     } else if (cell.marble === -1) {
       $cellEl.addClass('p2');
@@ -130,6 +126,7 @@ function renderValids() {
   valids.forEach(function(validIdx) {
     var $cellEl = $('[index="' + validIdx + '"]');
       $cellEl.addClass('clickable');
+
   });
 }
 
@@ -163,7 +160,7 @@ $( ".cell").click(function(evt) {
       // ignore clicks on empty cells
       if (board[cellIndex].marble === null) return;
       if (board[cellIndex].marble !== whoseTurn) return;
-      if (selectedMarbles.length && !valids.includes(cellIndex)) return;
+      // check that marble clicked is not already in selectedMarbles array
       if ($.inArray(cellIndex, selectedMarbles) === -1) {
           $(this).addClass("clicked");
           selectedMarbles.push(cellIndex);
@@ -177,10 +174,5 @@ $( ".cell").click(function(evt) {
 });
 
 
-$('.moveArrow').on('click', function(evt) {
-  direction = $(this).attr('dir');
-  moveMarbles();
-  console.log(this);
-});
 
 initializeGame();
