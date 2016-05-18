@@ -132,20 +132,52 @@ function getOppDir(dir) {
   if (dir === 'w') return 'e';
 }
 
-// function findValidDirs() {
-//   if (selectedMarbles.length === 1) {
-//     if(!board[board[selectedMarbles[0]].nw]) {
-//       return 'nw'
-//     };
-//     if(!board[board[selectedMarbles[0]].ne]) {
+function findGutter() {
+  if (selectedMarbles.length === 1) {
+    if(!board[board[selectedMarbles[0]].nw]) {
+      console.log('nw');
+    };
+    if(!board[board[selectedMarbles[0]].ne]) {
+      console.log('ne');
+    };
+    if(!board[board[selectedMarbles[0]].e]){
+      console.log('e');
+    };
+    if(!board[board[selectedMarbles[0]].se]) {
+      console.log('se');
+    };
+    if(!board[board[selectedMarbles[0]].sw]) {
+      console.log('sw');
+    };
+    if(!board[board[selectedMarbles[0]].w]) {
+      console.log('w');
+    };
+  };
+};
 
-//     };
-//     console.log(board[board[selectedMarbles[0]].e]);
-//     console.log(board[board[selectedMarbles[0]].se]);
-//     console.log(board[board[selectedMarbles[0]].sw]);
-//     console.log(board[board[selectedMarbles[0]].w]);
-//   };
-// };
+function adjacentOpenCell() {
+  if (selectedMarbles.length === 1) {
+    if(!board[board[selectedMarbles[0]].nw].marble) {
+      console.log('nw');
+    };
+    if(!board[board[selectedMarbles[0]].ne].marble) {
+      console.log('ne');
+    };
+    if(!board[board[selectedMarbles[0]].e].marble){
+      console.log('e');
+    };
+    if(!board[board[selectedMarbles[0]].se].marble) {
+      console.log('se');
+    };
+    if(!board[board[selectedMarbles[0]].sw].marble) {
+      console.log('sw');
+    };
+    if(!board[board[selectedMarbles[0]].w].marble) {
+      console.log('w');
+    };
+  };
+};
+
 
 function renderBoard() {
   board.forEach(function(cell, idx) {
@@ -161,7 +193,6 @@ function renderBoard() {
     }
   });
   renderValids();
-  findValidDirs();
 }
 
 function renderValids() {
