@@ -92,10 +92,6 @@ function getAdjacent(index, dir) {
 }
 
 function findValidMarbles(index) {
-  valids.forEach(function(validIdx) {
-    var $cellEl = $('[index="' + validIdx + '"]');
-    $cellEl.removeClass('clickable');
-  });
   valids = [];
   if (selectedMarbles.length === 1) {
     var cell = board[index];
@@ -137,15 +133,27 @@ function getOppDir(dir) {
 }
 
 function findValidDirs() {
+  if (selectedMarbles.length === 1) {
+    if(!board[board[selectedMarbles[0]].nw]) {
+      return 'nw'
+    };
+    if(!board[board[selectedMarbles[0]].ne]) {
 
+    };
+    console.log(board[board[selectedMarbles[0]].e]);
+    console.log(board[board[selectedMarbles[0]].se]);
+    console.log(board[board[selectedMarbles[0]].sw]);
+    console.log(board[board[selectedMarbles[0]].w]);
+  };
 };
 
 function renderBoard() {
   board.forEach(function(cell, idx) {
     var $cellEl = $('[index="' + idx + '"]');
     $cellEl.removeClass('p1 p2 clickable clicked');
-    if (cell.marble === whoseTurn && selectedMarbles.length === 0) {
-      $cellEl.addClass('clickable'); }
+    if ($.inArray(idx, selectedMarbles) === 0 || $.inArray(idx, selectedMarbles) === 1 || $.inArray(idx, selectedMarbles) === 2) {
+      $cellEl.addClass('clicked');
+    };
     if (cell.marble === 1) {
       $cellEl.addClass('p1');
     } else if (cell.marble === -1) {
@@ -153,14 +161,23 @@ function renderBoard() {
     }
   });
   renderValids();
+  findValidDirs();
 }
 
 function renderValids() {
+  if (selectedMarbles.length === 0) {
+    board.forEach(function(idx) {
+      if (idx.marble === whoseTurn) {
+      valids.push(board.indexOf(idx));
+    };
+  })
+}
   valids.forEach(function(validIdx) {
     var $cellEl = $('[index="' + validIdx + '"]');
       $cellEl.addClass('clickable');
   });
 }
+
 
 function getCellIndex(el) {
   return parseInt($(el).attr('index'));
@@ -176,9 +193,9 @@ function moveMarbles() {
     board[nextIndex].marble = board[marbleIdx].marble;
   });
   board[selectedMarbles[getTail()]].marble = null;
-  renderBoard();
   selectedMarbles = [];
   whoseTurn *= -1;
+  renderBoard();
 };
 
 
@@ -209,7 +226,6 @@ $( ".cell").click(function(evt) {
 $('.moveArrow').on('click', function(evt) {
   direction = $(this).attr('dir');
   moveMarbles();
-  console.log(this);
 });
 
 initializeGame();

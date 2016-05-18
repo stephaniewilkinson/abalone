@@ -1,3 +1,7 @@
+body {
+  background-image: url("../img/grid.png");
+}
+
 .cell {
   width: 75px;
   height: 75px;
@@ -24,13 +28,12 @@ cursor: pointer;
 
 .p2 {
   background-color: blue;
-  opacity: 0.25;
+  opacity: 0.15;
 }
 
 .clicked {
   animation: pulse 500ms 1;
   opacity: 1.0;
-  background-color: peachpuff;
 }
 
 .clickable {
