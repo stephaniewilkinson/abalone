@@ -194,6 +194,16 @@ function findOpenCellsClasses() {
   }
 }
 
+function tokyoDrift() {
+  var marble0 = board[selectedMarbles[0]];
+  var marble1 = board[selectedMarbles[1]];
+  var marble2 = board[selectedMarbles[2]];
+
+  selectedMarbles.some( idx[0].se == idx[1].se) {
+  return 'se';
+  };
+};
+
 function renderArrows() {
   var nearbyOpenCells = findOpenCellsClasses();
   if (selectedMarbles.length === 0) {
@@ -201,8 +211,11 @@ function renderArrows() {
   } else if (selectedMarbles.length === 1 && nearbyOpenCells) {
     $(nearbyOpenCells).show();
   } else if (selectedMarbles.length === 2) {
-    //only show two arrows, the topDir and OpDir, if they are empty (marble == null)
+    console.log(getTopDir());
 
+    console.log(getOppDir(getTopDir()));
+
+    $('.moveArrow').show();
   }
 };
 
