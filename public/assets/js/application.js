@@ -1,4 +1,4 @@
-  ////////
+////////
 //Data
 ////////
 
@@ -11,8 +11,8 @@ var validDirs;
 var gutter;
 var remainingMarblesRed ;
 var remainingMarblesBlue;
-var possibleDirs = ['nw', 'ne', 'e', 'se', 'sw', 'w'];
-
+var directions = ['nw', 'ne', 'e', 'se', 'sw', 'w'];
+var owners = [0, 1, -1, 0, 0];
 
 ////////
 //Functions
@@ -31,7 +31,7 @@ function initBoard() {
     {marble: 1,  w: 7,    nw: 2,    ne: 3,    e: 9,    se: 15,   sw: 14},
     {marble: 1,  w: 8,    nw: 3,    ne: 4,    e: 10,   se: 16,   sw: 15},
     {marble: 1,  w: 9,    nw: 4,    ne: null, e: null, se: 17,   sw: 16},
-    {marble: 0,  w:    null, nw: null, ne: 5, e: 12,   se: 19,   sw: 18},
+    {marble: 0,  w: null, nw: null, ne: 5, e: 12,   se: 19,   sw: 18},
     {marble: 0,  w: 11,   nw: 5,    ne: 6,    e: 13,   se: 20,   sw: 19},
     {marble: 1,  w: 12,   nw: 6,    ne: 7,    e: 14,   se: 21,   sw: 20},
     {marble: 1,  w: 13,   nw: 7,    ne: 8,    e: 15,   se: 22,   sw: 21},
@@ -92,6 +92,12 @@ var initializeGame = function() {
   renderBoard();
 }
 
+function jumbleBoard() {
+  board.forEach(function(idx) {
+    idx.marble = owners[Math.floor(Math.random() * 5)];
+  });
+};
+
 
 ////////
 // Directional Functions
@@ -113,10 +119,6 @@ function getOppDir(dir) {
   if (dir === 'w') return 'e';
 }
 
-function getAdjacent(index, dir) {
-  return board[board[index][dir]];
-}
-
 function getCellIndex(el) {
   return parseInt($(el).attr('index'));
 }
@@ -126,7 +128,7 @@ function getTail() {
 }
 
 function possibleDirections() {
-  return possibleDirs.filter(function(dir) {
+  return directions.filter(function(dir) {
     return canMarblesMove(dir);
   });
 }
@@ -134,6 +136,21 @@ function possibleDirections() {
 function canMarblesMove(dir) {
   return selectedMarbles.every(function(m) {
     return (board[m][dir] && board[board[m][dir]].marble === 0) || selectedMarbles.includes(board[m][dir]);
+  });
+};
+
+function possibleShoves() {
+  return directions.filter(function(dir) {
+    return canMarblesShove(dir);
+  });
+}
+
+function canMarblesShove(dir) {
+  return selectedMarbles.every(function(m) {
+    console.log(m);
+    console.log(whoseTurn);
+    console.log(board[board[m][dir]].marble);
+    return (board[board[m][dir]].marble !== whoseTurn);
   });
 };
 
@@ -170,19 +187,29 @@ function findOpenCellsClasses(arr) {
   }
 }
 
+// function shoveMarbles() {
+
+// find the two relationships the marbles have to each other
+// look at the endmost marbles
+// count one more space beyond each endpoint
+// if that is an enemy
+// check one more space beyond that
+// if it's open,  and selected marbles > 1, return true
+// if it has an enemy
+//   look one more space beyond that
+// if it's open and selectedMarbles > 2, return true
+
+
+// }
+
+
+
 function moveMarbles() {
   selectedMarbles.forEach(function(marbleIdx) {
     var nextIndex = board[marbleIdx][direction];
     board[nextIndex].marble = board[marbleIdx].marble;
   });
-
-  console.log(board[selectedMarbles[getTail()]].marble);
   board[selectedMarbles[getTail()]].marble = 0;
-  console.log(board[selectedMarbles[getTail()]].marble);
-
-//this only removes the tail marble if there is only one tail marble.
-//Lateral moves can produce two or three marbles to be removed.
-
   selectedMarbles = [];
   whoseTurn *= -1;
   renderBoard();
@@ -221,6 +248,12 @@ function renderArrows() {
   };
 };
 
+function turnArrowRed() {
+  console.log(dir);
+ $('.' + 'se').css('color', 'red');
+ console.log(this);
+}
+
 function renderBoard() {
   board.forEach(function(cell, idx) {
     var $cellEl = $('[index="' + idx + '"]');
@@ -253,6 +286,9 @@ function renderValids() {
   });
 }
 
+function turnArrowRed(dir) {
+
+}
 ////////
 //Event Listeners
 ////////
@@ -280,6 +316,11 @@ $( ".cell").click(function(evt) {
 $('.moveArrow').on('click', function(evt) {
   direction = $(this).attr('dir');
   moveMarbles();
+});
+
+$('.jumble').on('click', function(evt) {
+  jumbleBoard();
+  renderBoard();
 });
 
 initializeGame();
