@@ -127,7 +127,10 @@ function getTail() {
   return ['e', 'se', 'sw'].includes(direction) ? 0 : selectedMarbles.length - 1;
 }
 
-function possibleDirections() {
+
+
+
+function possibleMoveDirections() {
   return directions.filter(function(dir) {
     return canMarblesMove(dir);
   });
@@ -139,20 +142,25 @@ function canMarblesMove(dir) {
   });
 };
 
-function possibleShoves() {
+
+
+function possibleShoveDirections() {
   return directions.filter(function(dir) {
-    return canMarblesShove(dir);
+    return canMarblesMove(dir);
   });
 }
 
 function canMarblesShove(dir) {
   return selectedMarbles.every(function(m) {
-    console.log(m);
-    console.log(whoseTurn);
-    console.log(board[board[m][dir]].marble);
-    return (board[board[m][dir]].marble !== whoseTurn);
+    return (board[m][dir] && board[board[m][dir]].marble === (whoseTurn * -1)) || selectedMarbles.includes(board[m][dir]);
   });
 };
+
+
+
+
+
+
 
 function findValidMarbles(index) {
   valids = [];
@@ -242,7 +250,7 @@ function checkIfWon() {
 
 function renderArrows() {
   $('.moveArrow').hide();
-  var nearbyOpenCells = findOpenCellsClasses(possibleDirections());
+  var nearbyOpenCells = findOpenCellsClasses(possibleMoveDirections());
   if (selectedMarbles.length > 0) {
     $(nearbyOpenCells).show();
   };
