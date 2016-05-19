@@ -194,7 +194,6 @@ function findOpenCellsClasses() {
   }
 }
 
-
 function canMarblesMoveIn(dir) {
   return selectedMarbles.every(function(m) {
     return board[board[m][dir]].marble === 0 || selectedMarbles.includes(board[m][dir]);
