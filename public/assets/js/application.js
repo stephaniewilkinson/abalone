@@ -146,13 +146,13 @@ function canMarblesMove(dir) {
 
 function possibleShoveDirections() {
   return directions.filter(function(dir) {
-    return canMarblesMove(dir);
+    return canMarblesShove(dir);
   });
 }
 
 function canMarblesShove(dir) {
   return selectedMarbles.every(function(m) {
-    return (board[m][dir] && board[board[m][dir]].marble === (whoseTurn * -1)) || selectedMarbles.includes(board[m][dir]);
+    return (board[m][dir] && board[board[m][dir]].marble === (whoseTurn * (-1))) || selectedMarbles.includes(board[m][dir]);
   });
 };
 
