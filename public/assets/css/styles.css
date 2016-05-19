@@ -3,20 +3,21 @@ body {
 }
 
 .cell {
-  width: 75px;
-  height: 75px;
+  width: 40px;
+  height: 40px;
   display: inline-block;
   border-radius: 50%;
   background-color: lightgray;
-  margin: 5px;
+  margin: 2px;
 }
 
 .gutter {
-  width: 75px;
-  height: 75px;
+  width: 40px;
+  height: 40px;
   display: inline-block;
-  margin: 5px;
+  margin: 2px;
   background-image: url("../img/skull.png");
+  background-size: 40px;
   background-repeat: no-repeat;
   text-align: center;
   opacity: 0.2;

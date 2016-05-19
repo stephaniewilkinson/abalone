@@ -9,6 +9,10 @@ var direction;
 var valids = [];
 var validDirs;
 var gutter;
+var remainingMarblesRed ;
+var remainingMarblesBlue;
+var possibleDirs = ['nw', 'ne', 'e', 'se', 'sw', 'w'];
+
 
 ////////
 //Functions
@@ -88,9 +92,50 @@ var initializeGame = function() {
   renderBoard();
 }
 
+
+////////
+// Directional Functions
+////////
+
+function getTopDir() {
+  var cell2 = board[selectedMarbles[1]];
+  if (cell2.nw === selectedMarbles[0]) return 'nw';
+  if (cell2.ne === selectedMarbles[0]) return 'ne';
+  if (cell2.w === selectedMarbles[0]) return 'w';
+};
+
+function getOppDir(dir) {
+  if (dir === 'nw') return 'se';
+  if (dir === 'ne') return 'sw';
+  if (dir === 'e') return 'w';
+  if (dir === 'se') return 'nw';
+  if (dir === 'sw') return 'ne';
+  if (dir === 'w') return 'e';
+}
+
 function getAdjacent(index, dir) {
   return board[board[index][dir]];
 }
+
+function getCellIndex(el) {
+  return parseInt($(el).attr('index'));
+}
+
+function getTail() {
+  return ['e', 'se', 'sw'].includes(direction) ? 0 : selectedMarbles.length - 1;
+}
+
+function possibleDirections() {
+  return possibleDirs.filter(function(dir) {
+    return canMarblesMove(dir);
+  });
+}
+
+function canMarblesMove(dir) {
+  return selectedMarbles.every(function(m) {
+    return (board[m][dir] && board[board[m][dir]].marble === 0) || selectedMarbles.includes(board[m][dir]);
+  });
+};
 
 function findValidMarbles(index) {
   valids = [];
@@ -116,77 +161,8 @@ function findValidMarbles(index) {
   return valids;
 }
 
-function getTopDir() {
-  var cell2 = board[selectedMarbles[1]];
-  if (cell2.nw === selectedMarbles[0]) return 'nw';
-  if (cell2.ne === selectedMarbles[0]) return 'ne';
-  if (cell2.w === selectedMarbles[0]) return 'w';
-};
-
-
-function getOppDir(dir) {
-  if (dir === 'nw') return 'se';
-  if (dir === 'ne') return 'sw';
-  if (dir === 'e') return 'w';
-  if (dir === 'se') return 'nw';
-  if (dir === 'sw') return 'ne';
-  if (dir === 'w') return 'e';
-}
-
-function findGutter() {
-  if (selectedMarbles.length === 1) {
-    if(!board[board[selectedMarbles[0]].nw]) {
-      gutter.push('nw');
-    };
-    if(!board[board[selectedMarbles[0]].ne]) {
-      gutter.push('ne');
-    };
-    if(!board[board[selectedMarbles[0]].e]){
-     gutters.push('e');
-    };
-    if(!board[board[selectedMarbles[0]].se]) {
-      gutter.push('se');
-    };
-    if(!board[board[selectedMarbles[0]].sw]) {
-      gutter.push('sw');
-    };
-    if(!board[board[selectedMarbles[0]].w]) {
-     gutters.push('w');
-    };
-  };
-};
-
-function findOpenCells() {
-  var nearbyOpenCells = [];
-  if (selectedMarbles.length === 1) {
-    var currentMarble = board[selectedMarbles[0]];
-
-    if(board[currentMarble.nw] && board[currentMarble.nw].marble === 0){
-      nearbyOpenCells.push('nw');
-    };
-    if(board[currentMarble.ne] && board[currentMarble.ne].marble === 0){
-      nearbyOpenCells.push('ne');
-    };
-    if(board[currentMarble.e]  && board[currentMarble.e].marble === 0){
-      nearbyOpenCells.push('e');
-    };
-    if(board[currentMarble.se] && board[currentMarble.se].marble === 0){
-      nearbyOpenCells.push('se');
-    };
-    if(board[currentMarble.sw] && board[currentMarble.sw].marble === 0){
-      nearbyOpenCells.push('sw');
-    };
-    if(board[currentMarble.w]  && board[currentMarble.w].marble === 0){
-      nearbyOpenCells.push('w');
-    };
-  };
-  console.log(nearbyOpenCells);
-  return nearbyOpenCells;
-
-};
-
-function findOpenCellsClasses() {
-  var openCells = findOpenCells();
+function findOpenCellsClasses(arr) {
+  var openCells = arr;
   if (openCells.length > 0) {
     return "." + openCells.join(", .");
   } else {
@@ -194,21 +170,55 @@ function findOpenCellsClasses() {
   }
 }
 
-function canMarblesMoveIn(dir) {
-  return selectedMarbles.every(function(m) {
-    return board[board[m][dir]].marble === 0 || selectedMarbles.includes(board[m][dir]);
+function moveMarbles() {
+  selectedMarbles.forEach(function(marbleIdx) {
+    var nextIndex = board[marbleIdx][direction];
+    board[nextIndex].marble = board[marbleIdx].marble;
   });
+
+  console.log(board[selectedMarbles[getTail()]].marble);
+  board[selectedMarbles[getTail()]].marble = 0;
+  console.log(board[selectedMarbles[getTail()]].marble);
+
+//this only removes the tail marble if there is only one tail marble.
+//Lateral moves can produce two or three marbles to be removed.
+
+  selectedMarbles = [];
+  whoseTurn *= -1;
+  renderBoard();
 };
 
-function renderArrows() {
-  var nearbyOpenCells = findOpenCellsClasses();
-  if (selectedMarbles.length === 0) {
-    $('.moveArrow').hide();
-  } else if (selectedMarbles.length === 1 && nearbyOpenCells) {
-    $(nearbyOpenCells).show();
-  } else if (selectedMarbles.length === 2) {
-    $('.moveArrow').show();
+function checkIfWon() {
+  remainingMarblesRed = [];
+  remainingMarblesBlue = [];
+  //if there are fewer than nine of either color the game is won
+  board.forEach(function(idx) {
+    if (idx.marble === 1) {
+      remainingMarblesRed.push(board.indexOf(idx));
+    };
+    if (idx.marble === -1) {
+      remainingMarblesBlue.push(board.indexOf(idx));
+    };
+  });
+  if (remainingMarblesBlue.length < 9) {
+    alert('red wins');
+    initBoard();
+  } else if (remainingMarblesRed.length < 9) {
+    alert('blue wins');
+    initBoard();
   }
+}
+
+////////
+//Renders
+////////
+
+function renderArrows() {
+  $('.moveArrow').hide();
+  var nearbyOpenCells = findOpenCellsClasses(possibleDirections());
+  if (selectedMarbles.length > 0) {
+    $(nearbyOpenCells).show();
+  };
 };
 
 function renderBoard() {
@@ -224,8 +234,9 @@ function renderBoard() {
       $cellEl.addClass('p2');
     }
   });
-  renderValids();
   renderArrows();
+  checkIfWon();
+  renderValids();
 }
 
 function renderValids() {
@@ -241,27 +252,6 @@ function renderValids() {
       $cellEl.addClass('clickable');
   });
 }
-
-
-function getCellIndex(el) {
-  return parseInt($(el).attr('index'));
-}
-
-function getTail() {
-  return ['e', 'se', 'sw'].includes(direction) ? 0 : selectedMarbles.length - 1;
-}
-
-function moveMarbles() {
-  selectedMarbles.forEach(function(marbleIdx) {
-    var nextIndex = board[marbleIdx][direction];
-    board[nextIndex].marble = board[marbleIdx].marble;
-  });
-  board[selectedMarbles[getTail()]].marble = 0;
-  selectedMarbles = [];
-  whoseTurn *= -1;
-  renderBoard();
-};
-
 
 ////////
 //Event Listeners
