@@ -11,6 +11,17 @@ body {
   margin: 5px;
 }
 
+.gutter {
+  width: 75px;
+  height: 75px;
+  display: inline-block;
+  margin: 5px;
+  background-image: url("../img/skull.png");
+  background-repeat: no-repeat;
+  text-align: center;
+  opacity: 0.2;
+}
+
 .row {
   margin: 0 auto;
   text-align: center;

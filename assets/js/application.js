@@ -27,45 +27,45 @@ function initBoard() {
     {marble: 1,    w: 7,    nw: 2,    ne: 3,    e: 9,    se: 15,   sw: 14},
     {marble: 1,    w: 8,    nw: 3,    ne: 4,    e: 10,   se: 16,   sw: 15},
     {marble: 1,    w: 9,    nw: 4,    ne: null, e: null, se: 17,   sw: 16},
-    {marble: null, w:    null, nw: null, ne: 5, e: 12,   se: 19,   sw: 18},
-    {marble: null, w: 11,   nw: 5,    ne: 6,    e: 13,   se: 20,   sw: 19},
+    {marble: 0, w:    null, nw: null, ne: 5, e: 12,   se: 19,   sw: 18},
+    {marble: 0, w: 11,   nw: 5,    ne: 6,    e: 13,   se: 20,   sw: 19},
     {marble: 1,    w: 12,   nw: 6,    ne: 7,    e: 14,   se: 21,   sw: 20},
     {marble: 1,    w: 13,   nw: 7,    ne: 8,    e: 15,   se: 22,   sw: 21},
     {marble: 1,    w: 14,   nw: 8,    ne: 9,    e: 16,   se: 23,   sw: 22},
-    {marble: null, w: 15,   nw: 9,    ne: 10,   e: 17,   se: 24,   sw: 23},
-    {marble: null, w: 16,   nw: 10,   ne: null, e: null, se: 25,   sw: 24},
-    {marble: null, w: null, nw: null, ne: 11,   e: 19,   se: 26,   sw: 26},
-    {marble: null, w: 18,   nw: 11,   ne: 12,   e: 20,   se: 27,   sw: 27},
-    {marble: null, w: 19,   nw: 12,   ne: 13,   e: 21,   se: 28,   sw: 28},
-    {marble: null, w: 20,   nw: 13,   ne: 14,   e: 22,   se: 29,   sw: 29},
-    {marble: null, w: 21,   nw: 14,   ne: 15,   e: 23,   se: 30,   sw: 30},
-    {marble: null, w: 22,   nw: 15,   ne: 16,   e: 24,   se: 31,   sw: 31},
-    {marble: null, w: 23,   nw: 16,   ne: 17,   e: 25,   se: 32,   sw: 32},
-    {marble: null, w: 24,   nw: 17,   ne: null, e: null, se: 33,   sw: 33},
-    {marble: null, w: null, nw: null, ne: 18,   e: 27,   se: 35,   sw: null},
-    {marble: null, w: 26,   nw: 18,   ne: 19,   e: 28,   se: 36,   sw: 35},
-    {marble: null, w: 27,   nw: 19,   ne: 20,   e: 29,   se: 37,   sw: 36},
-    {marble: null, w: 28,   nw: 20,   ne: 21,   e: 30,   se: 38,   sw: 37},
-    {marble: null, w: 29,   nw: 21,   ne: 22,   e: 31,   se: 39,   sw: 38},
-    {marble: null, w: 30,   nw: 22,   ne: 23,   e: 32,   se: 40,   sw: 39},
-    {marble: null, w: 31,   nw: 23,   ne: 24,   e: 33,   se: 41,   sw: 40},
-    {marble: null, w: 32,   nw: 24,   ne: 25,   e: 34,   se: 42,   sw: 41},
-    {marble: null, w: 33,   nw: 25,   ne: null, e: null, se: null, sw: 42},
-    {marble: null, w: null, nw: 26,   ne: 27,   e: 36,   se: 43,   sw: 42},
-    {marble: null, w: 35,   nw: 27,   ne: 28,   e: 37,   se: 44,   sw: 43},
-    {marble: null, w: 36,   nw: 28,   ne: 29,   e: 38,   se: 45,   sw: 44},
-    {marble: null, w: 37,   nw: 29,   ne: 30,   e: 39,   se: 46,   sw: 45},
-    {marble: null, w: 38,   nw: 30,   ne: 31,   e: 40,   se: 47,   sw: 46},
-    {marble: null, w: 39,   nw: 31,   ne: 32,   e: 41,   se: 48,   sw: 47},
-    {marble: null, w: 40,   nw: 32,   ne: 33,   e: 42,   se: 49,   sw: 48},
-    {marble: null, w: 41,   nw: 33,   ne: 34,   e: null, se: null, sw: 49},
-    {marble: null, w: null, nw: 35,   ne: 36,   e: 44,   se: 50,   sw: null},
-    {marble: null, w: 43,   nw: 36,   ne: 37,   e: 45,   se: 51,   sw: 50},
+    {marble: 0, w: 15,   nw: 9,    ne: 10,   e: 17,   se: 24,   sw: 23},
+    {marble: 0, w: 16,   nw: 10,   ne: null, e: null, se: 25,   sw: 24},
+    {marble: 0, w: null, nw: null, ne: 11,   e: 19,   se: 26,   sw: 26},
+    {marble: 0, w: 18,   nw: 11,   ne: 12,   e: 20,   se: 27,   sw: 27},
+    {marble: 0, w: 19,   nw: 12,   ne: 13,   e: 21,   se: 28,   sw: 28},
+    {marble: 0, w: 20,   nw: 13,   ne: 14,   e: 22,   se: 29,   sw: 29},
+    {marble: 0, w: 21,   nw: 14,   ne: 15,   e: 23,   se: 30,   sw: 30},
+    {marble: 0, w: 22,   nw: 15,   ne: 16,   e: 24,   se: 31,   sw: 31},
+    {marble: 0, w: 23,   nw: 16,   ne: 17,   e: 25,   se: 32,   sw: 32},
+    {marble: 0, w: 24,   nw: 17,   ne: null, e: null, se: 33,   sw: 33},
+    {marble: 0, w: null, nw: null, ne: 18,   e: 27,   se: 35,   sw: null},
+    {marble: 0, w: 26,   nw: 18,   ne: 19,   e: 28,   se: 36,   sw: 35},
+    {marble: 0, w: 27,   nw: 19,   ne: 20,   e: 29,   se: 37,   sw: 36},
+    {marble: 0, w: 28,   nw: 20,   ne: 21,   e: 30,   se: 38,   sw: 37},
+    {marble: 0, w: 29,   nw: 21,   ne: 22,   e: 31,   se: 39,   sw: 38},
+    {marble: 0, w: 30,   nw: 22,   ne: 23,   e: 32,   se: 40,   sw: 39},
+    {marble: 0, w: 31,   nw: 23,   ne: 24,   e: 33,   se: 41,   sw: 40},
+    {marble: 0, w: 32,   nw: 24,   ne: 25,   e: 34,   se: 42,   sw: 41},
+    {marble: 0, w: 33,   nw: 25,   ne: null, e: null, se: null, sw: 42},
+    {marble: 0, w: null, nw: 26,   ne: 27,   e: 36,   se: 43,   sw: 42},
+    {marble: 0, w: 35,   nw: 27,   ne: 28,   e: 37,   se: 44,   sw: 43},
+    {marble: 0, w: 36,   nw: 28,   ne: 29,   e: 38,   se: 45,   sw: 44},
+    {marble: 0, w: 37,   nw: 29,   ne: 30,   e: 39,   se: 46,   sw: 45},
+    {marble: 0, w: 38,   nw: 30,   ne: 31,   e: 40,   se: 47,   sw: 46},
+    {marble: 0, w: 39,   nw: 31,   ne: 32,   e: 41,   se: 48,   sw: 47},
+    {marble: 0, w: 40,   nw: 32,   ne: 33,   e: 42,   se: 49,   sw: 48},
+    {marble: 0, w: 41,   nw: 33,   ne: 34,   e: null, se: null, sw: 49},
+    {marble: 0, w: null, nw: 35,   ne: 36,   e: 44,   se: 50,   sw: null},
+    {marble: 0, w: 43,   nw: 36,   ne: 37,   e: 45,   se: 51,   sw: 50},
     {marble: -1,   w: 44,   nw: 37,   ne: 38,   e: 46,   se: 52,   sw: 51},
     {marble: -1,   w: 45,   nw: 38,   ne: 39,   e: 47,   se: 53,   sw: 52},
     {marble: -1,   w: 46,   nw: 39,   ne: 40,   e: 48,   se: 54,   sw: 53},
-    {marble: null, w: 47,   nw: 40,   ne: 41,   e: 49,   se: 55,   sw: 54},
-    {marble: null, w: 48,   nw: 41,   ne: 42,   e: null, se: null, sw: 55},
+    {marble: 0, w: 47,   nw: 40,   ne: 41,   e: 49,   se: 55,   sw: 54},
+    {marble: 0, w: 48,   nw: 41,   ne: 42,   e: null, se: null, sw: 55},
     {marble: -1,   w: null, nw: 43,   ne: 44,   e: 51,   se: 56,   sw: null},
     {marble: -1,   w: 50,   nw: 44,   ne: 45,   e: 52,   se: 57,   sw: 56  },
     {marble: -1,   w: 51,   nw: 45,   ne: 46,   e: 53,   se: 58,   sw: 57  },
@@ -159,13 +159,19 @@ function findGutter() {
 function findOpenCells() {
   var nearbyOpenCells = [];
   if (selectedMarbles.length === 1) {
-    if(!(board[board[selectedMarbles[0]].nw].marble)) {
+    var currentMarble = board[selectedMarbles[0]];
+
+    console.log(currentMarble);
+    console.log(currentMarble.ne); //gives us the index of the marble to the NE
+    console.log(board[currentMarble.ne]);
+
+    if(!(board[currentMarble.nw].marble)) {
       nearbyOpenCells.push('nw');
     };
-    if(!board[board[selectedMarbles[0]].ne].marble) {
+    if(!(board[currentMarble.ne].marble)) {
       nearbyOpenCells.push('ne');
     };
-    if(!board[board[selectedMarbles[0]].e].marble){
+    if(!board[currentMarble.e].marble){
       nearbyOpenCells.push('e');
     };
     if(!board[board[selectedMarbles[0]].se].marble) {
@@ -178,7 +184,9 @@ function findOpenCells() {
       nearbyOpenCells.push('w');
     };
   };
+  console.log(nearbyOpenCells);
   return nearbyOpenCells;
+
 };
 
 function findOpenCellsClasses() {
@@ -192,7 +200,6 @@ function findOpenCellsClasses() {
 
 function renderArrows() {
   var nearbyOpenCells = findOpenCellsClasses();
-  console.log("HERE I AM! LOOK AT ME!", nearbyOpenCells);
   if (selectedMarbles.length === 0) {
     $('.moveArrow').hide();
   } else if (selectedMarbles.length === 1 && nearbyOpenCells) {
