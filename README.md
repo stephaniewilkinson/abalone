@@ -8,7 +8,7 @@ Abalone is a challenging game of strategy that for two players. Each take turns 
 You can play with anyone online if you both visit the hosted version on firebase, since it has a firebase dB backend.  
 
 
-
+----------------------- ------------------------------------
 ## Table of contents
 
 - [Abalone](#abalone)
@@ -25,7 +25,11 @@ You can play with anyone online if you both visit the hosted version on firebase
 -- [Challenges](#challenges)  
 - [Credits](#credits)  
 - [Next steps](#next-steps)  
+----------------------- ------------------------------------
 
+
+## Screenshot
+![Screenshot](public/assets/img/screenshot.png "Abalone board game")
 
 ## Features
 
@@ -64,8 +68,6 @@ Another facet of the user experience design is the highlighted marbles to show v
 
 ## [Rules](http://www.gamerz.net/pbmserv/abalone.html)
 
-## Screenshot
-![Screenshot](public/assets/img/screenshot.png "Abalone board game")
 
 ## Development
 To develop this game, I wrote user stories on [Pivotal Tracker.](https://www.pivotaltracker.com/n/projects/1487676)

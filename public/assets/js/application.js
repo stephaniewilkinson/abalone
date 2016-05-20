@@ -177,24 +177,23 @@ function canIShove() {
     var enemyDirsArray  = nearbyEnemies(); // ["ne"]
     var lastMarble      = rightSouthMostMarble();
     var firstMarble     = leftNorthMostMarble();
-        var enemyBattleLines = 1;
+    var enemyBattleLines = 1;
+    var validMurderDirs = [];
 
       for (var i = enemyDirsArray.length - 1; i >= 0; i--) {
         var dir = enemyDirsArray[i]
         var targetObj = board[lastMarble[dir]];
         var northTargetObj = board[firstMarble[dir]]
 
-          console.log('you have an enemy to your ' + dir);
           if(["se","sw","e"].indexOf(dir) > -1) {
             if (board[targetObj[dir]] && board[targetObj[dir]].marble === 0) {
-              console.log('there is an open space on the other side of your enemy to the blah' + dir);
+            } else if (!targetObj.hasOwnProperty(dir)) {
+              console.log('gutterball to the ' + dir);
+              validMurderDirs.push(dir);
             } else if (board[targetObj[dir]] && (board[targetObj[dir]].marble === (whoseTurn * (-1)))) {
-              console.log('there is an enemy two deep' + dir)
               enemyBattleLines ++;
               targetObj = board[targetObj[dir]];
             } else if (board[targetObj[dir]] && board[targetObj[dir]].marble === whoseTurn) {
-              console.log('whats being evaluated is' + board[targetObj[dir]].marble);
-              console.log('its your own marble on the other side of your enemy to the' + dir);
               canShove = false;
             }
             if (enemyBattleLines < selectedMarbles.length && canShove) {
@@ -202,30 +201,28 @@ function canIShove() {
               validShoveDirs.push(dir);
             }
           }
-          console.log(canShove)
+
           if ( ["w","nw","ne"].indexOf(dir) > -1) {
             if (board[northTargetObj[dir]] && board[northTargetObj[dir]].marble === 0) {
-              console.log('there is an open space on the other side of your enemy to the ' + dir);
             } else if (board[northTargetObj[dir]] && (board[northTargetObj[dir]].marble === (whoseTurn * (-1)))) {
-              console.log('there is an enemy two deep' + dir)
               enemyBattleLines ++;
               northTargetObj = board[northTargetObj[dir]];
-            } else if (board[northTargetObj[dir]] && board[northTargetObj[dir]].marble === whoseTurn) {
-              console.log('whats being evaluated is' + board[northTargetObj[dir]].marble);
-              console.log('its your own marble on the other side of your enemy to the' + dir);
+            }  else if (!northTargetObj.hasOwnProperty(dir)) {
+              console.log('gutterball to the ' + dir);
+              validMurderDirs.push(dir);
+            }  else if (board[northTargetObj[dir]] && board[northTargetObj[dir]].marble === whoseTurn) {
               canShove = false;
             } else if (objInDir(northTargetObj, dir) === null || board[northTargetObj[dir]] === undefined) {
 
             }
             if ((enemyBattleLines < selectedMarbles.length) && canShove) {
-              console.log("Can shove", dir);
               validShoveDirs.push(dir);
             } else {
-              console.log("Can't shove.");
             }
           }
       }
     return validShoveDirs;
+    return validMurderDirs;
   }
 }
 
