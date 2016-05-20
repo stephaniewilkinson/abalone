@@ -1,29 +1,27 @@
 ## Table of contents
 
 
-<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-	- [Table of contents](#table-of-contents)
-	- [Abalone](#abalone)
-	- [Features](#features)
-	- [Anti-features](#anti-features)
-	- [Requirements](#requirements)
-	- [Alternatives](#alternatives)
-	- [Tools & Technologies](#tools-technologies)
-	- [Design Approach](#design-approach)
-	- [References](#references)
-	- [[Rules](http://www.gamerz.net/pbmserv/abalone.html)](#ruleshttpwwwgamerznetpbmservabalonehtml)
-	- [Screenshot](#screenshot)
-	- [Development](#development)
-		- [Initial concept](#initial-concept)
-	- [Credits](#credits)
-	- [Next steps for further iterations](#next-steps-for-further-iterations)
 
-<!-- /TOC -->
+[Abalone](#abalone)
+
+[Features](#features)  
+[Anti-features](#anti-features)
+[Requirements](#requirements)
+[Alternatives](#alternatives)
+[Tools & Technologies](#tools-technologies)  
+[Design Approach](#design-approach)  
+[References](#references)  
+[Screenshot](#screenshot)  
+[Development](#development)  
+[Initial concept](#initial-concept)  
+[Credits](#credits)  
+[Next steps](#next-steps)  
 
 
 
-## Abalone
+
+## [Abalone](abalone)
 
 A playable, in-browser version of the strategy game [Abalone](https://en.wikipedia.org/wiki/Abalone_(board_game)).  
 
@@ -32,7 +30,8 @@ Abalone is a challenging game of strategy that for two players. Each take turns 
 [Deployed on firebase for multi-player enjoyment using firebase dB.](https://abalone-game.firebaseapp.com/)  
 You can play with anyone online if you both visit the hosted version on firebase, since it has a firebase dB backend.  
 
-## Features
+
+## [features](Features)
 
 + Functions just like the board game, with lateral moves of strings of marbles.
 
@@ -90,6 +89,6 @@ Thanks to these developers for their contributions.
 
 ![Abalone Game](public/assets/img/abalone.jpeg "Abalone board game")
 
-## Next steps for further iterations
+## [Next steps](next-steps)
 + Animation for moving marbles around
 + Deselect marbles
