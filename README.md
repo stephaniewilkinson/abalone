@@ -1,47 +1,42 @@
-#Abalone
+# Abalone
 
-##Logic
+A playable, in-browser version of the strategy game [Abalone](https://en.wikipedia.org/wiki/Abalone_(board_game). 
 
-+Linked lists  
-+Six way linked list  
-+Property on each ball that points to the other six objects  
-+Six nodes  
-+If a node is 0 then thats the edge  
-+Separate pointer that points to the firstmost marble  
+## Features
 
-```javascript
++ Functions just like the board game, with lateral moves of strings of marbles.
++ 
 
-marble {
-    column: 0,
-    row: 2
-}
-```
+## Anti-features
+The game does not include the following features, but pull requests are welcome.
 
-##References
++ No timer
++ No AI
 
-https://en.wikipedia.org/wiki/Abalone_(board_game)  
+## Requirements
+None.
 
-http://entertainment.howstuffworks.com/leisure/brain-games/abalone2.htm  
+## Alternatives
 
-http://www.cs.nott.ac.uk/~pszeo/docs/publications/ABLA_id136final.pdf  
++ http://www.clickhere.nl/abalone/play/
 
-http://www.clickhere.nl/abalone/play/  
-
-##Theme Inspiration
-
-[Monument Valley Game](http://www.monumentvalleygame.com/)   
-
-[Monument Valley Design Analysis](http://nabauer.com/monument-valley-design-analysis/)
+## Tools
++ javascript
++ jquery
 
 
+## References
 
++ http://entertainment.howstuffworks.com/leisure/brain-games/abalone2.htm  
++ http://www.cs.nott.ac.uk/~pszeo/docs/publications/ABLA_id136final.pdf  
 
-Data structure:
+  
 
-empty cells as div circles with border radius 50%
+## Credits
 
-each element is an object
-
-each cell has a { Marble: 0} or {marble: 1} or {marble: -1}
-
-{marble: 1, ne:null, nw:null, e: 1, se: 6, sw: 5, w: null}
++ havenwood
++ jim
++ kyle
++ adrian
++ earnagram
++ pjhughes
