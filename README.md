@@ -1,3 +1,22 @@
+<!-- MarkdownTOC -->
+
+- Abalone
+    - Features
+    - Anti-features
+    - Requirements
+    - Alternatives
+    - Tools & Technologies
+    - Design Approach
+    - References
+    - Rules
+    - Screenshot
+    - Development
+    - Credits
+    - Next steps for further iterations
+
+<!-- /MarkdownTOC -->
+
+
 # Abalone
 
 A playable, in-browser version of the strategy game [Abalone](https://en.wikipedia.org/wiki/Abalone_(board_game)).  
@@ -29,6 +48,7 @@ None.
 + jquery
 + fontawesome
 + firebase
++ pivotal tracker
 
 ## Design Approach
 
@@ -46,6 +66,11 @@ Another facet of the user experience design is the highlighted marbles to show v
 ## Screenshot 
 ![Screenshot](public/assets/img/screenshot.png "Abalone board game")
 
+## Development
+To develop this game, I wrote user stories on [Pivotal Tracker.](https://www.pivotaltracker.com/n/projects/1487676)
+
+### Initial concept
+
 ## Credits
 Thanks to these developers for their contributions.
 
@@ -62,3 +87,5 @@ Thanks to these developers for their contributions.
 ## Next steps for further iterations
 + Animation for moving marbles around
 + Deselect marbles
+
+
