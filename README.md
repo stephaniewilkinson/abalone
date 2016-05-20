@@ -88,6 +88,7 @@ Thanks to these developers for their contributions.
 + [phil](https://github.com/h4w5)
 + [havenwood](https://github.com/havenwood)
 + [rob](https://github.com/robawilkinson)
++ [victor](#)
 
 ![Abalone Game](public/assets/img/abalone.jpeg "Abalone board game")
 

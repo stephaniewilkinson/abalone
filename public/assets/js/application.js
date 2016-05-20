@@ -222,7 +222,6 @@ function canIShove() {
           }
       }
     return validShoveDirs;
-    return validMurderDirs;
   }
 }
 
@@ -258,7 +257,6 @@ function findCellsClasses(arr) {
     return "";
   }
 }
-
 
 //reverse the array depending ont he direction
 
@@ -404,6 +402,10 @@ $('.jumble').on('click', function(evt) {
 $('.tilt').on('click', function(evt) {
   $('#board').toggleClass('boardtilt');
   $('#container').toggleClass('containertilt')
+});
+
+$('.rotate').on('click', function(evt) {
+  $('#board').toggleClass('rotateboard');
 });
 
 initializeGame();

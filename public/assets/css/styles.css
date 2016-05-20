@@ -13,7 +13,7 @@ h1, h2 {
   display: inline;
 }
 
-.jumble, .tilt {
+.jumble, .tilt, .rotate {
   cursor: pointer;
   color: #2e0927;
 }
@@ -89,5 +89,9 @@ h1, h2 {
 
 .rotatedir {
   transform: rotate(45deg);
+}
+
+.rotateboard {
+  transform: rotate(180deg);
 }
 
