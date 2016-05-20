@@ -2,21 +2,25 @@
 
 
 
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-[Abalone](#abalone)
+	- [Table of contents](#table-of-contents)
+	- [[Abalone](abalone)](#abaloneabalone)
+	- [[features](Features)](#featuresfeatures)
+	- [[Anti-features](anti-features)](#anti-featuresanti-features)
+	- [[Requirements](requirements)](#requirementsrequirements)
+	- [[Alternatives](alternatives)](#alternativesalternatives)
+	- [[Tools & Technologies](tools-technologies)](#tools-technologiestools-technologies)
+	- [[Design Approach](design-approach)](#design-approachdesign-approach)
+	- [[References](references)](#referencesreferences)
+	- [[Rules](http://www.gamerz.net/pbmserv/abalone.html)](#ruleshttpwwwgamerznetpbmservabalonehtml)
+	- [[Screenshot](screenshot)](#screenshotscreenshot)
+	- [Development](#development)
+		- [Initial concept](#initial-concept)
+	- [Credits](#credits)
+	- [[Next steps](next-steps)](#next-stepsnext-steps)
 
-[Features](#features)  
-[Anti-features](#anti-features)
-[Requirements](#requirements)
-[Alternatives](#alternatives)
-[Tools & Technologies](#tools-technologies)  
-[Design Approach](#design-approach)  
-[References](#references)  
-[Screenshot](#screenshot)  
-[Development](#development)  
-[Initial concept](#initial-concept)  
-[Credits](#credits)  
-[Next steps](#next-steps)  
+<!-- /TOC -->
 
 
 
@@ -35,40 +39,40 @@ You can play with anyone online if you both visit the hosted version on firebase
 
 + Functions just like the board game, with lateral moves of strings of marbles.
 
-## Anti-features
+## [Anti-features](anti-features)
 The game does not include the following features, but pull requests are welcome.
 
 + Countdown timer
 + AI
 
-## Requirements
+## [Requirements](requirements)
 None.
 
-## Alternatives
+## [Alternatives](alternatives)
 
 + http://www.clickhere.nl/abalone/play/
 
-## Tools & Technologies
+## [Tools & Technologies](tools-technologies)
 + javascript
 + jquery
 + fontawesome
 + firebase
 + pivotal tracker
 
-## Design Approach
+## [Design Approach](design-approach)
 
 Since Abalone is a relatively little-known game, user experience is foremost. Rather than showing all moves and alerting the user when they pick an invalid move, the UI only shows arrows for possible move directions. In addition, arrows turn red when you are interacting with opponent marbles for further user education.
 
 Another facet of the user experience design is the highlighted marbles to show valid next selections. For users who are unfamiliar with the rules of Abalone, this helps to educate them on how many of their own marbles they can select to move.
 
-## References
+## [References](references)
 
 + http://entertainment.howstuffworks.com/leisure/brain-games/abalone2.htm
 + http://www.cs.nott.ac.uk/~pszeo/docs/publications/ABLA_id136final.pdf
 
 ## [Rules](http://www.gamerz.net/pbmserv/abalone.html)
 
-## Screenshot
+## [Screenshot](screenshot)
 ![Screenshot](public/assets/img/screenshot.png "Abalone board game")
 
 ## Development
