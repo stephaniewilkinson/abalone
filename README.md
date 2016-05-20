@@ -1,7 +1,11 @@
 # Abalone
 
-A playable, in-browser version of the strategy game [Abalone](https://en.wikipedia.org/wiki/Abalone_(board_game)). 
-[Deployed on firebase for multi-player enjoyment using firebase dB.](https://abalone-game.firebaseapp.com/)
+A playable, in-browser version of the strategy game [Abalone](https://en.wikipedia.org/wiki/Abalone_(board_game)).  
+
+Abalone is a challenging game of strategy that for two players. Each take turns moving marbles around the board, with the objective to remove other player's marbles.  
+
+[Deployed on firebase for multi-player enjoyment using firebase dB.](https://abalone-game.firebaseapp.com/)  
+You can play with anyone online if you both visit the hosted version on firebase, since it has a firebase dB backend.  
 
 ## Features
 
@@ -39,6 +43,7 @@ Another facet of the user experience design is the highlighted marbles to show v
 
 ## [Rules](http://www.gamerz.net/pbmserv/abalone.html)
 
+## Screenshot 
 ![Screenshot](public/assets/img/screenshot.png "Abalone board game")
 
 ## Credits
