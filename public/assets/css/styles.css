@@ -2,14 +2,28 @@ body {
   background-image: url("../img/grid.png");
 }
 
+.container {
+
+        -webkit-perspective: 475px; /* Chrome, Safari, Opera */
+    perspective: 475px;
+}
+
+.board {
+
+        -webkit-transform: rotateX(deg); /* Chrome, Safari, Opera  */
+    transform: rotateX(45deg);
+}
 
 .cell {
   width: 40px;
+          -webkit-perspective: 0px; /* Chrome, Safari, Opera */
+    perspective: 0px;
   height: 40px;
   display: inline-block;
   border-radius: 50%;
   background-color: lightgray;
   margin: 2px;
+
 }
 
 .gutter {
@@ -27,6 +41,8 @@ body {
 .row {
   margin: 0 auto;
   text-align: center;
+            -webkit-perspective: 0px; /* Chrome, Safari, Opera */
+    perspective: 0px;
 }
 
 .rose {
