@@ -20,7 +20,7 @@
 
 
 
-## [Abalone](abalone)
+## Abalone
 
 A playable, in-browser version of the strategy game [Abalone](https://en.wikipedia.org/wiki/Abalone_(board_game)).  
 
@@ -30,7 +30,7 @@ Abalone is a challenging game of strategy that for two players. Each take turns 
 You can play with anyone online if you both visit the hosted version on firebase, since it has a firebase dB backend.  
 
 
-## [features](Features)
+## Features
 
 + Functions just like the board game, with lateral moves of strings of marbles.
 
