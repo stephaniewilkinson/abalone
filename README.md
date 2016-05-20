@@ -45,11 +45,11 @@ None.
 + http://www.clickhere.nl/abalone/play/
 
 ## Tools & Technologies
-+ javascript
-+ jquery
-+ fontawesome
-+ firebase
-+ pivotal tracker
++ [javascript](https://developer.mozilla.org/en-US/docs/Web/JavaScript)
++ [jquery](https://jquery.com/)
++ [fontawesome](http://fontawesome.io/)
++ [firebase](https://www.firebase.com/)
++ [pivotal tracker](https://www.pivotaltracker.com/)
 
 ## Design Approach
 
