@@ -103,6 +103,7 @@ function jumbleBoard() {
 // Directional Functions
 ////////
 
+// gets the irection of the top of the row
 function getTopDir() {
   var cell2 = board[selectedMarbles[1]];
   if (cell2.nw === selectedMarbles[0]) return 'nw';
@@ -110,6 +111,7 @@ function getTopDir() {
   if (cell2.w === selectedMarbles[0]) return 'w';
 };
 
+// gets the opposite of the top dir
 function getOppDir(dir) {
   if (dir === 'nw') return 'se';
   if (dir === 'ne') return 'sw';
@@ -147,7 +149,7 @@ function nearbyEnemies() {
 
 function isThereAnEnemyAdjacent(dir) {
   return selectedMarbles.every(function(m) {
-    return (board[m][dir] && board[board[m][dir]].marble === (whoseTurn * (-1))) || selectedMarbles.includes(board[m][dir]);
+    return (board[m][dir] != null && board[board[m][dir]].marble === (whoseTurn * (-1))) || selectedMarbles.includes(board[m][dir]);
   });
 };
 
@@ -159,45 +161,68 @@ function objInDir(thisMarble, dir) {
   return board[thisMarble[dir]];
 }
 
+function leftNorthMostMarble() {
+  return board[selectedMarbles[0]]
+}
 function canIShove() {
   if (selectedMarbles.length > 1) {
     var canShove = true;
-    var validShoveDirs = [];
-    var enemyDirsArray  = nearbyEnemies();
+    var validShoveDirs  = [];
+    var enemyDirsArray  = nearbyEnemies(); // ["ne"]
     var lastMarble      = rightSouthMostMarble();
+    var firstMarble     = leftNorthMostMarble();
+        var enemyBattleLines = 1;
 
-    enemyDirsArray.forEach(function(dir) {
-      console.log(dir);
-      var targetObj = board[lastMarble[dir]];
-      var enemyBattleLines = 1;
+      for (var i = enemyDirsArray.length - 1; i >= 0; i--) {
+        var dir = enemyDirsArray[i]
+        var targetObj = board[lastMarble[dir]];
+        var northTargetObj = board[firstMarble[dir]]
 
-      for (var i = 0; i < 3; i++) {
-        console.log('you have an enemy to your ' + dir);
-        if (board[targetObj[dir]] && board[targetObj[dir]].marble === 0) {
-          console.log('there is an open space on the other side of your enemy to the ' + dir);
-          break;
-        } else if (board[targetObj[dir]] && (board[targetObj[dir]].marble === (whoseTurn * (-1)))) {
-          console.log('there is an enemy two deep' + dir)
-          enemyBattleLines ++;
-          targetObj = board[targetObj[dir]];
-        } else if (board[targetObj[dir]] && board[targetObj[dir]].marble === whoseTurn) {
-          console.log('whats being evaluated is' + board[targetObj[dir]].marble);
-          console.log('its your own marble on the other side of your enemy to the' + dir);
-          canShove = false;
-          break;
-        } if (objInDir(targetObj, dir) === null || board[targetObj[dir]] === undefined) {
-          break;
-        }
+          console.log('you have an enemy to your ' + dir);
+          if(["se","sw","e"].indexOf(dir) > -1) {
+            if (board[targetObj[dir]] && board[targetObj[dir]].marble === 0) {
+              console.log('there is an open space on the other side of your enemy to the blah' + dir);
+            } else if (board[targetObj[dir]] && (board[targetObj[dir]].marble === (whoseTurn * (-1)))) {
+              console.log('there is an enemy two deep' + dir)
+              enemyBattleLines ++;
+              targetObj = board[targetObj[dir]];
+            } else if (board[targetObj[dir]] && board[targetObj[dir]].marble === whoseTurn) {
+              console.log('whats being evaluated is' + board[targetObj[dir]].marble);
+              console.log('its your own marble on the other side of your enemy to the' + dir);
+              canShove = false;
+            }
+            if (enemyBattleLines < selectedMarbles.length && canShove) {
+              console.log("Can shove", dir);
+              validShoveDirs.push(dir);
+            }
+          }
+          console.log(canShove)
+          if ( ["w","nw","ne"].indexOf(dir) > -1) {
+            if (board[northTargetObj[dir]] && board[northTargetObj[dir]].marble === 0) {
+              console.log('there is an open space on the other side of your enemy to the ' + dir);
+            } else if (board[northTargetObj[dir]] && (board[northTargetObj[dir]].marble === (whoseTurn * (-1)))) {
+              console.log('there is an enemy two deep' + dir)
+              enemyBattleLines ++;
+              northTargetObj = board[northTargetObj[dir]];
+            } else if (board[northTargetObj[dir]] && board[northTargetObj[dir]].marble === whoseTurn) {
+              console.log('whats being evaluated is' + board[northTargetObj[dir]].marble);
+              console.log('its your own marble on the other side of your enemy to the' + dir);
+              canShove = false;
+            } else if (objInDir(northTargetObj, dir) === null || board[northTargetObj[dir]] === undefined) {
+
+            }
+            if ((enemyBattleLines < selectedMarbles.length) && canShove) {
+              console.log("Can shove", dir);
+              validShoveDirs.push(dir);
+            } else {
+              console.log("Can't shove.");
+            }
+          }
       }
-
-      if (enemyBattleLines < selectedMarbles.length && canShove) {
-        console.log("Can shove", dir);
-        validShoveDirs.push(dir);
-      } else {
-        console.log("Can't shove.");
-      }
+      console.log
+      console.log(enemyBattleLines)
       console.log(validShoveDirs);
-    });
+    return validShoveDirs;
   }
 }
 
@@ -227,7 +252,7 @@ function findValidMarbles(index) {
 
 function findCellsClasses(arr) {
   var openCells = arr;
-  if (openCells.length > 0) {
+  if (openCells != null && openCells.length > 0) {
     return "." + openCells.join(", .");
   } else {
     return "";
@@ -237,24 +262,28 @@ function findCellsClasses(arr) {
 
 //reverse the array depending ont he direction
 
-function moveMarbles() {
+function moveMarbles(direction) {
   console.log(direction);
   if(direction === 'ne' || direction === 'nw' || direction === 'w') {
-  selectedMarbles.forEach(function(marbleIdx) {
-    var nextIndex = board[marbleIdx][direction];
-    board[nextIndex].marble = board[marbleIdx].marble;
-    board[marbleIdx].marble = 0;
-   });
+    // check if you're shoving a marble
+    selectedMarbles.forEach(function(marbleIdx) {
+      var nextIndex = board[marbleIdx][direction];
+      board[nextIndex].marble = board[marbleIdx].marble;
+      board[marbleIdx].marble = 0;
+     });
+
   } else if (direction === 'sw' || direction === 'se' || direction === 'e') {
+    //check if the cell is filled already
     selectedMarbles = selectedMarbles;
     for (var i = selectedMarbles.length - 1; i > -1; i--) {
-    var nextIndex = board[selectedMarbles[i]][direction];
+      var nextIndex = board[selectedMarbles[i]][direction];
 
-    board[nextIndex].marble = board[selectedMarbles[i]].marble;
+      board[nextIndex].marble = board[selectedMarbles[i]].marble;
 
-    board[selectedMarbles[i]].marble = 0;
+      board[selectedMarbles[i]].marble = 0;
     }
   } else {console.log('wtf')};
+
   // board[selectedMarbles[getTail()]].marble = 0;
   selectedMarbles = [];
   whoseTurn *= -1;
@@ -290,13 +319,17 @@ function checkIfWon() {
 
 function renderArrows() {
   $('.moveArrow').hide();
+  $('.moveArrow').css('color', '');
   var nearbyOpenCells = findCellsClasses(possibleMoveDirections());
+  var validShoveDirs = findCellsClasses(canIShove());
+
   if (selectedMarbles.length > 0) {
     $(nearbyOpenCells).show();
   };
-  // function turnArrowRed() {
-  //   $('se').css('color', 'red');
-  // }
+  if (selectedMarbles.length > 1) {
+    $(validShoveDirs).show();
+    $(validShoveDirs).css('color', 'red');
+  }
 };
 
 function renderBoard() {
@@ -358,7 +391,7 @@ $( ".cell").click(function(evt) {
 
 $('.moveArrow').on('click', function(evt) {
   direction = $(this).attr('dir');
-  moveMarbles();
+  moveMarbles(direction);
 });
 
 $('.jumble').on('click', function(evt) {
