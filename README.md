@@ -1,7 +1,15 @@
+## Abalone
+
+A playable, in-browser version of the strategy game [Abalone](https://en.wikipedia.org/wiki/Abalone_(board_game)).  
+
+Abalone is a challenging game of strategy that for two players. Each take turns moving marbles around the board, with the objective to remove other player's marbles.  
+
+[Deployed on firebase for multi-player enjoyment using firebase dB.](https://abalone-game.firebaseapp.com/)  
+You can play with anyone online if you both visit the hosted version on firebase, since it has a firebase dB backend.  
+
+
+
 ## Table of contents
-
-
-
 
 - [Abalone](#abalone)
 - [Features](#features)  
@@ -13,21 +21,10 @@
 - [References](#references)  
 - [Screenshot](#screenshot)  
 - [Development](#development)  
-- [Initial concept](#initial-concept)  
+-- [Initial concept](#initial-concept)  
+-- [Challenges](#challenges)  
 - [Credits](#credits)  
 - [Next steps](#next-steps)  
-
-
-
-
-## Abalone
-
-A playable, in-browser version of the strategy game [Abalone](https://en.wikipedia.org/wiki/Abalone_(board_game)).  
-
-Abalone is a challenging game of strategy that for two players. Each take turns moving marbles around the board, with the objective to remove other player's marbles.  
-
-[Deployed on firebase for multi-player enjoyment using firebase dB.](https://abalone-game.firebaseapp.com/)  
-You can play with anyone online if you both visit the hosted version on firebase, since it has a firebase dB backend.  
 
 
 ## Features
@@ -74,6 +71,10 @@ Another facet of the user experience design is the highlighted marbles to show v
 To develop this game, I wrote user stories on [Pivotal Tracker.](https://www.pivotaltracker.com/n/projects/1487676)
 
 ### Initial concept
+I planned to use the official notation for marble coordinates, similar to chess notation. This would mean that cells are oriented along an A-I and 1-9 axis. However, this kind of notation didn't lend itself well to an array data structure, so I decided to use rows and columns, in an array of cell objects.
+
+### Challenges
+Abalone is a complex game because each player can select up to three marbles, and can move in as many as six directions. In addition, interactions with other players follow a strict set of rules and a lot of logic had to be written in to include those rules.
 
 ## Credits
 Thanks to these developers for their contributions.
