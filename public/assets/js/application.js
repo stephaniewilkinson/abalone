@@ -13,13 +13,14 @@ var remainingMarblesRed ;
 var remainingMarblesBlue;
 var directions = ['nw', 'ne', 'e', 'se', 'sw', 'w'];
 var owners = [0, 1, -1, 0, 0];
+var db = new Firebase("https://abalone-game.firebaseio.com/");
 
 ////////
 //Functions
 ////////
 
 function initBoard() {
-  board = [
+  db.set({'board': [
   /*  0 */  {marble: 1,  w: null, nw: null, ne: null, e: 1,    se: 6,    sw: 5},
   /*  1 */  {marble: 1,  w: 0,    nw: null, ne: null, e: 2,    se: 7,    sw: 6},
   /*  2 */  {marble: 1,  w: 1,    nw: null, ne: null, e: 3,    se: 8,    sw: 7},
@@ -81,7 +82,15 @@ function initBoard() {
   /* 58 */  {marble: -1, w: 57,   nw: 52,   ne: 53,   e: 59,   se: null, sw: null},
   /* 59 */  {marble: -1, w: 58,   nw: 53,   ne: 54,   e: 60,   se: null, sw: null},
   /* 60 */  {marble: -1, w: 59,   nw: 54,   ne: 55,   e: null, se: null, sw: null}
-  ];
+  ],
+  whoseTurn: whoseTurn
+});
+
+db.on('value', function(dataSnapshot) {
+  board = dataSnapshot.val().board
+  whoseTurn = dataSnapshot.val().whoseTurn
+  renderBoard()
+})
 }
 
 var initializeGame = function() {
@@ -286,7 +295,9 @@ function moveMarbles(direction) {
 
   // board[selectedMarbles[getTail()]].marble = 0;
   selectedMarbles = [];
+  db.update({board: board})
   whoseTurn *= -1;
+  db.update({whoseTurn: whoseTurn})
   renderBoard();
 };
 
