@@ -5,125 +5,17 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Abalone</title>
   <link rel="stylesheet" href="assets/css/styles.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat+Alternates:400,700' rel='stylesheet' type='text/css'>
+
   <script src="assets/js/jquery-2.2.3.min.js"></script>
   <script src="https://cdn.firebase.com/js/client/2.4.2/firebase.js"></script>
-
-<link rel="stylesheet" href="assets/css/font-awesome.css">
+  <link rel="stylesheet" href="assets/css/font-awesome.css">
+<link href='https://fonts.googleapis.com/css?family=Bitter' rel='stylesheet' type='text/css'>
 </head>
 <body>
-<div class="container">
-<div class="board">
-<button class="jumble">Jumble board </button>
-  <div class="row" id="0">
-    <div class="gutter"></div>
-    <div class="gutter"></div>
-    <div class="gutter"></div>
-    <div class="gutter"></div>
-  </div>
-  <div class="row">
-    <div class="gutter"></div>
-    <div class="cell" id="i5" index="0" data-x="i" data-y="5"></div>
-    <div class="cell" id="i6" index="1" data-x="i" data-y="6"></div>
-    <div class="cell" id="i7" index="2" data-x="i" data-y="7"></div>
-    <div class="cell" id="i8" index="3" data-x="i" data-y="8"></div>
-    <div class="cell" id="i9" index="4" data-x="i" data-y="9"></div>
-    <div class="gutter"></div>
-  </div>
-  <div class="row" id="1">
-    <div class="gutter"></div>
-    <div class="cell" id="h4" index="5" data-x="h" data-y="4"></div>
-    <div class="cell" id="h5" index="6" data-x="h" data-y="5"></div>
-    <div class="cell" id="h6" index="7" data-x="h" data-y="6"></div>
-    <div class="cell" id="h7" index="8" data-x="h" data-y="7"></div>
-    <div class="cell" id="h8" index="9" data-x="h" data-y="8"></div>
-    <div class="cell" id="h9" index="10" data-x="h" data-y="9"></div>
-    <div class="gutter"></div>
-  </div>
-  <div class="row" id="2">
-    <div class="gutter"></div>
-    <div class="cell" id="g3" index="11" data-x="g" data-y="3"></div>
-    <div class="cell" id="g4" index="12" data-x="g" data-y="4"></div>
-    <div class="cell" id="g5" index="13" data-x="g" data-y="5"></div>
-    <div class="cell" id="g6" index="14" data-x="g" data-y="6"></div>
-    <div class="cell" id="g7" index="15" data-x="g" data-y="7"></div>
-    <div class="cell" id="g8" index="16" data-x="g" data-y="8"></div>
-    <div class="cell" id="g9" index="17" data-x="g" data-y="9"></div>
-    <div class="gutter"></div>
-  </div>
-  <div class="row" id="3">
-    <div class="gutter"></div>
-    <div class="cell" id="f2" index="18" data-x="f" data-y="2"></div>
-    <div class="cell" id="f3" index="19" data-x="f" data-y="3"></div>
-    <div class="cell" id="f4" index="20" data-x="f" data-y="4"></div>
-    <div class="cell" id="f5" index="21" data-x="f" data-y="5"></div>
-    <div class="cell" id="f6" index="22" data-x="f" data-y="6"></div>
-    <div class="cell" id="f7" index="23" data-x="f" data-y="7"></div>
-    <div class="cell" id="f8" index="24" data-x="f" data-y="8"></div>
-    <div class="cell" id="f9" index="25" data-x="f" data-y="9"></div>
-    <div class="gutter"></div>
-  </div>
-  <div class="row" id="4">
-    <div class="gutter"></div>
-    <div class="cell" id="e1" index="26" data-x="e" data-y="1"></div>
-    <div class="cell" id="e2" index="27" data-x="e" data-y="2"></div>
-    <div class="cell" id="e3" index="28" data-x="e" data-y="3"></div>
-    <div class="cell" id="e4" index="29" data-x="e" data-y="4"></div>
-    <div class="cell" id="e5" index="30" data-x="e" data-y="5"></div>
-    <div class="cell" id="e6" index="31" data-x="e" data-y="6"></div>
-    <div class="cell" id="e7" index="32" data-x="e" data-y="7"></div>
-    <div class="cell" id="e8" index="33" data-x="e" data-y="8"></div>
-    <div class="cell" id="e9" index="34" data-x="e" data-y="9"></div>
-    <div class="gutter"></div>
-  </div>
-  <div class="row" id="5">
-    <div class="gutter"></div>
-    <div class="cell" id="d1" index="35" data-x="d" data-y="1"></div>
-    <div class="cell" id="d2" index="36" data-x="d" data-y="2"></div>
-    <div class="cell" id="d3" index="37" data-x="d" data-y="3"></div>
-    <div class="cell" id="d4" index="38" data-x="d" data-y="4"></div>
-    <div class="cell" id="d5" index="39" data-x="d" data-y="5"></div>
-    <div class="cell" id="d6" index="40" data-x="d" data-y="6"></div>
-    <div class="cell" id="d7" index="41" data-x="d" data-y="7"></div>
-    <div class="cell" id="d8" index="42" data-x="d" data-y="8"></div>
-    <div class="gutter"></div>
-  </div>
-  <div class="row" id="6">
-    <div class="gutter"></div>
-    <div class="cell" id="c1" index="43" data-x="c", data-y="1"></div>
-    <div class="cell" id="c2" index="44" data-x="c", data-y="2"></div>
-    <div class="cell" id="c3" index="45" data-x="c", data-y="3"></div>
-    <div class="cell" id="c4" index="46" data-x="c", data-y="4"></div>
-    <div class="cell" id="c5" index="47" data-x="c", data-y="5"></div>
-    <div class="cell" id="c6" index="48" data-x="c", data-y="6"></div>
-    <div class="cell" id="c7" index="49" data-x="c", data-y="7"></div>
-    <div class="gutter"></div>
-  </div>
-  <div class="row" id="7">
-    <div class="gutter"></div>
-    <div class="cell" id="b1" index="50" data-x="b", data-y="1"></div>
-    <div class="cell" id="b2" index="51" data-x="b", data-y="2"></div>
-    <div class="cell" id="b3" index="52" data-x="b", data-y="3"></div>
-    <div class="cell" id="b4" index="53" data-x="b", data-y="4"></div>
-    <div class="cell" id="b5" index="54" data-x="b", data-y="5"></div>
-    <div class="cell" id="b6" index="55" data-x="b", data-y="6"></div>
-    <div class="gutter"></div>
-  </div>
-  <div class="row" id="8">
-    <div class="gutter"></div>
-    <div class="cell" id="a1" index="56" data-x="a", data-y="1"></div>
-    <div class="cell" id="a2" index="57" data-x="a", data-y="2"></div>
-    <div class="cell" id="a3" index="58" data-x="a", data-y="3"></div>
-    <div class="cell" id="a4" index="59" data-x="a", data-y="4"></div>
-    <div class="cell" id="a5" index="60" data-x="a", data-y="5"></div>
-    <div class="gutter"></div>
-  </div>
-  <div class="row">
-    <div class="gutter"></div>
-    <div class="gutter"></div>
-    <div class="gutter"></div>
-    <div class="gutter"></div>
-  </div>
-  </div>
+<div class="textbox">
+<h1>welcome to abalone.</h1><em>a game of skill and shellfish</em>
+</div>
   <div class='rose'>
     <i dir="nw" class="nw moveArrow fa fa-arrow-circle-left fa-3x rotatedir"   alt="Move Northwest"> </i>
     <i dir="ne" class="ne moveArrow fa fa-arrow-circle-up fa-3x rotatedir"     alt="Move Northeast"> </i><br>
@@ -132,7 +24,120 @@
     <i dir="sw" class="sw moveArrow fa fa-arrow-circle-down fa-3x rotatedir"   alt="Move Southwest"> </i>
     <i dir="se" class="se moveArrow fa fa-arrow-circle-right fa-3x rotatedir"  alt="Move Southeast"> </i>
   </div>
-</div>
+<div id="container">
+  <div id="board">
+    <div class="row" id="0">
+      <div class="gutter"></div>
+      <div class="gutter"></div>
+      <div class="gutter"></div>
+      <div class="gutter"></div>
+    </div>
+    <div class="row">
+      <div class="gutter"></div>
+      <div class="cell" id="i5" index="0" data-x="i" data-y="5"></div>
+      <div class="cell" id="i6" index="1" data-x="i" data-y="6"></div>
+      <div class="cell" id="i7" index="2" data-x="i" data-y="7"></div>
+      <div class="cell" id="i8" index="3" data-x="i" data-y="8"></div>
+      <div class="cell" id="i9" index="4" data-x="i" data-y="9"></div>
+      <div class="gutter"></div>
+    </div>
+    <div class="row" id="1">
+      <div class="gutter"></div>
+      <div class="cell" id="h4" index="5" data-x="h" data-y="4"></div>
+      <div class="cell" id="h5" index="6" data-x="h" data-y="5"></div>
+      <div class="cell" id="h6" index="7" data-x="h" data-y="6"></div>
+      <div class="cell" id="h7" index="8" data-x="h" data-y="7"></div>
+      <div class="cell" id="h8" index="9" data-x="h" data-y="8"></div>
+      <div class="cell" id="h9" index="10" data-x="h" data-y="9"></div>
+      <div class="gutter"></div>
+    </div>
+    <div class="row" id="2">
+      <div class="gutter"></div>
+      <div class="cell" id="g3" index="11" data-x="g" data-y="3"></div>
+      <div class="cell" id="g4" index="12" data-x="g" data-y="4"></div>
+      <div class="cell" id="g5" index="13" data-x="g" data-y="5"></div>
+      <div class="cell" id="g6" index="14" data-x="g" data-y="6"></div>
+      <div class="cell" id="g7" index="15" data-x="g" data-y="7"></div>
+      <div class="cell" id="g8" index="16" data-x="g" data-y="8"></div>
+      <div class="cell" id="g9" index="17" data-x="g" data-y="9"></div>
+      <div class="gutter"></div>
+    </div>
+    <div class="row" id="3">
+      <div class="gutter"></div>
+      <div class="cell" id="f2" index="18" data-x="f" data-y="2"></div>
+      <div class="cell" id="f3" index="19" data-x="f" data-y="3"></div>
+      <div class="cell" id="f4" index="20" data-x="f" data-y="4"></div>
+      <div class="cell" id="f5" index="21" data-x="f" data-y="5"></div>
+      <div class="cell" id="f6" index="22" data-x="f" data-y="6"></div>
+      <div class="cell" id="f7" index="23" data-x="f" data-y="7"></div>
+      <div class="cell" id="f8" index="24" data-x="f" data-y="8"></div>
+      <div class="cell" id="f9" index="25" data-x="f" data-y="9"></div>
+      <div class="gutter"></div>
+    </div>
+    <div class="row" id="4">
+      <div class="gutter"></div>
+      <div class="cell" id="e1" index="26" data-x="e" data-y="1"></div>
+      <div class="cell" id="e2" index="27" data-x="e" data-y="2"></div>
+      <div class="cell" id="e3" index="28" data-x="e" data-y="3"></div>
+      <div class="cell" id="e4" index="29" data-x="e" data-y="4"></div>
+      <div class="cell" id="e5" index="30" data-x="e" data-y="5"></div>
+      <div class="cell" id="e6" index="31" data-x="e" data-y="6"></div>
+      <div class="cell" id="e7" index="32" data-x="e" data-y="7"></div>
+      <div class="cell" id="e8" index="33" data-x="e" data-y="8"></div>
+      <div class="cell" id="e9" index="34" data-x="e" data-y="9"></div>
+      <div class="gutter"></div>
+    </div>
+    <div class="row" id="5">
+      <div class="gutter"></div>
+      <div class="cell" id="d1" index="35" data-x="d" data-y="1"></div>
+      <div class="cell" id="d2" index="36" data-x="d" data-y="2"></div>
+      <div class="cell" id="d3" index="37" data-x="d" data-y="3"></div>
+      <div class="cell" id="d4" index="38" data-x="d" data-y="4"></div>
+      <div class="cell" id="d5" index="39" data-x="d" data-y="5"></div>
+      <div class="cell" id="d6" index="40" data-x="d" data-y="6"></div>
+      <div class="cell" id="d7" index="41" data-x="d" data-y="7"></div>
+      <div class="cell" id="d8" index="42" data-x="d" data-y="8"></div>
+      <div class="gutter"></div>
+    </div>
+    <div class="row" id="6">
+      <div class="gutter"></div>
+      <div class="cell" id="c1" index="43" data-x="c", data-y="1"></div>
+      <div class="cell" id="c2" index="44" data-x="c", data-y="2"></div>
+      <div class="cell" id="c3" index="45" data-x="c", data-y="3"></div>
+      <div class="cell" id="c4" index="46" data-x="c", data-y="4"></div>
+      <div class="cell" id="c5" index="47" data-x="c", data-y="5"></div>
+      <div class="cell" id="c6" index="48" data-x="c", data-y="6"></div>
+      <div class="cell" id="c7" index="49" data-x="c", data-y="7"></div>
+      <div class="gutter"></div>
+    </div>
+    <div class="row" id="7">
+      <div class="gutter"></div>
+      <div class="cell" id="b1" index="50" data-x="b", data-y="1"></div>
+      <div class="cell" id="b2" index="51" data-x="b", data-y="2"></div>
+      <div class="cell" id="b3" index="52" data-x="b", data-y="3"></div>
+      <div class="cell" id="b4" index="53" data-x="b", data-y="4"></div>
+      <div class="cell" id="b5" index="54" data-x="b", data-y="5"></div>
+      <div class="cell" id="b6" index="55" data-x="b", data-y="6"></div>
+      <div class="gutter"></div>
+    </div>
+    <div class="row" id="8">
+      <div class="gutter"></div>
+      <div class="cell" id="a1" index="56" data-x="a", data-y="1"></div>
+      <div class="cell" id="a2" index="57" data-x="a", data-y="2"></div>
+      <div class="cell" id="a3" index="58" data-x="a", data-y="3"></div>
+      <div class="cell" id="a4" index="59" data-x="a", data-y="4"></div>
+      <div class="cell" id="a5" index="60" data-x="a", data-y="5"></div>
+      <div class="gutter"></div>
+    </div>
+    <div class="row">
+      <div class="gutter"></div>
+      <div class="gutter"></div>
+      <div class="gutter"></div>
+      <div class="gutter"></div>
+    </div>
+  </div>
+  <i class="jumble fa fa-random fa-3x"></i>
+  <i class="tilt fa fa-arrows-alt fa-3x"></i>
 </body>
 <script src="assets/js/application.js" type="text/javascript"></script>
 </html>

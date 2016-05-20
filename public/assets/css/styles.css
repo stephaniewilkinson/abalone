@@ -1,29 +1,38 @@
+@import url(https://fonts.googleapis.com/css?family=Bitter:400,400italic,700);
+
 body {
-  background-image: url("../img/grid.png");
+  background-image: url("../img/asanoha.png");
 }
 
-.container {
-
-        -webkit-perspective: 475px; /* Chrome, Safari, Opera */
-    perspective: 475px;
+.textbox {
+  font-family: 'Bitter', serif;
+  color: #2e0927;
 }
 
-.board {
+.jumble, .tilt {
+  cursor: pointer;
+  color: #2e0927;
+}
 
-        -webkit-transform: rotateX(deg); /* Chrome, Safari, Opera  */
-    transform: rotateX(45deg);
+.containertilt {
+      -webkit-perspective: 600px;
+  perspective: 600px;
+
+}
+
+.boardtilt {
+      -webkit-transform: rotateX(deg);
+  transform: rotateX(45deg);
 }
 
 .cell {
   width: 40px;
-          -webkit-perspective: 0px; /* Chrome, Safari, Opera */
-    perspective: 0px;
   height: 40px;
   display: inline-block;
   border-radius: 50%;
-  background-color: lightgray;
+  background-color: #e0e0e0;
+  opacity: 0.8;
   margin: 2px;
-
 }
 
 .gutter {
@@ -32,7 +41,7 @@ body {
   display: inline-block;
   margin: 2px;
   background-image: url("../img/skull.png");
-  background-size: 40px;
+  background-size: 30px;
   background-repeat: no-repeat;
   text-align: center;
   opacity: 0.2;
@@ -41,32 +50,33 @@ body {
 .row {
   margin: 0 auto;
   text-align: center;
-            -webkit-perspective: 0px; /* Chrome, Safari, Opera */
-    perspective: 0px;
 }
 
 .rose {
-cursor: pointer;
+  cursor: pointer;
+  position: absolute;
+  top: 140px;
+  color: #2e0927;
+
 }
 
 .p1 {
-  background-color: red;
-  opacity: 0.25;
+  background-color: #d90000;
+  opacity: 0.4;
 }
 
 .p2 {
-  background-color: blue;
-  opacity: 0.15;
+  background-color: #04756f;
+  opacity: 0.4;
 }
 
 .clicked {
-  animation: pulse 500ms 1;
   opacity: 1.0;
 }
 
 .clickable {
   cursor: pointer;
-  opacity: 0.5;
+  opacity: 0.7;
 }
 
 .clickable:hover {
@@ -76,3 +86,4 @@ cursor: pointer;
 .rotatedir {
   transform: rotate(45deg);
 }
+

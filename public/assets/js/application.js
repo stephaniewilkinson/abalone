@@ -134,10 +134,6 @@ function getCellIndex(el) {
   return parseInt($(el).attr('index'));
 }
 
-function getTail() {
-  return ['e', 'se', 'sw'].includes(direction) ? 0 : selectedMarbles.length - 1;
-}
-
 function possibleMoveDirections() {
   return directions.filter(function(dir) {
     return canMarblesMove(dir);
@@ -408,6 +404,14 @@ $('.moveArrow').on('click', function(evt) {
 $('.jumble').on('click', function(evt) {
   jumbleBoard();
   renderBoard();
+});
+
+$('.tilt').on('click', function(evt) {
+  console.log(evt);
+  console.log($('.board'));
+
+  $('#board').toggleClass('boardtilt');
+  $('#container').toggleClass('containertilt')
 });
 
 initializeGame();
