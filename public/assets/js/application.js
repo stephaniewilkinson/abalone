@@ -224,9 +224,6 @@ function canIShove() {
             }
           }
       }
-      console.log
-      console.log(enemyBattleLines)
-      console.log(validShoveDirs);
     return validShoveDirs;
   }
 }
@@ -407,9 +404,6 @@ $('.jumble').on('click', function(evt) {
 });
 
 $('.tilt').on('click', function(evt) {
-  console.log(evt);
-  console.log($('.board'));
-
   $('#board').toggleClass('boardtilt');
   $('#container').toggleClass('containertilt')
 });

@@ -36,6 +36,8 @@ None.
 
 ## [Rules](http://www.gamerz.net/pbmserv/abalone.html)
 
+![Screenshot](public/assets/img/screenshot.png "Abalone board game")
+
 ## Credits
 Thanks to these developers for their contributions.
 
