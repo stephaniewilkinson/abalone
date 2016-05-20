@@ -31,21 +31,21 @@ function initBoard() {
     {marble: 1,  w: 7,    nw: 2,    ne: 3,    e: 9,    se: 15,   sw: 14},
     {marble: 1,  w: 8,    nw: 3,    ne: 4,    e: 10,   se: 16,   sw: 15},
     {marble: 1,  w: 9,    nw: 4,    ne: null, e: null, se: 17,   sw: 16},
-    {marble: 0,  w: null, nw: null, ne: 5, e: 12,   se: 19,   sw: 18},
+    {marble: 0,  w: null, nw: null, ne: 5,    e: 12,   se: 19,   sw: 18},
     {marble: 0,  w: 11,   nw: 5,    ne: 6,    e: 13,   se: 20,   sw: 19},
     {marble: 1,  w: 12,   nw: 6,    ne: 7,    e: 14,   se: 21,   sw: 20},
     {marble: 1,  w: 13,   nw: 7,    ne: 8,    e: 15,   se: 22,   sw: 21},
     {marble: 1,  w: 14,   nw: 8,    ne: 9,    e: 16,   se: 23,   sw: 22},
     {marble: 0,  w: 15,   nw: 9,    ne: 10,   e: 17,   se: 24,   sw: 23},
     {marble: 0,  w: 16,   nw: 10,   ne: null, e: null, se: 25,   sw: 24},
-    {marble: 0,  w: null, nw: null, ne: 11,   e: 19,   se: 26,   sw: 26},
-    {marble: 0,  w: 18,   nw: 11,   ne: 12,   e: 20,   se: 27,   sw: 27},
-    {marble: 0,  w: 19,   nw: 12,   ne: 13,   e: 21,   se: 28,   sw: 28},
-    {marble: 0,  w: 20,   nw: 13,   ne: 14,   e: 22,   se: 29,   sw: 29},
-    {marble: 0,  w: 21,   nw: 14,   ne: 15,   e: 23,   se: 30,   sw: 30},
-    {marble: 0,  w: 22,   nw: 15,   ne: 16,   e: 24,   se: 31,   sw: 31},
-    {marble: 0,  w: 23,   nw: 16,   ne: 17,   e: 25,   se: 32,   sw: 32},
-    {marble: 0,  w: 24,   nw: 17,   ne: null, e: null, se: 33,   sw: 33},
+    {marble: 0,  w: null, nw: null, ne: 11,   e: 19,   se: 27,   sw: 26},
+    {marble: 0,  w: 18,   nw: 11,   ne: 12,   e: 20,   se: 28,   sw: 27},
+    {marble: 0,  w: 19,   nw: 12,   ne: 13,   e: 21,   se: 29,   sw: 28},
+    {marble: 0,  w: 20,   nw: 13,   ne: 14,   e: 22,   se: 30,   sw: 29},
+    {marble: 0,  w: 21,   nw: 14,   ne: 15,   e: 23,   se: 31,   sw: 30},
+    {marble: 0,  w: 22,   nw: 15,   ne: 16,   e: 24,   se: 32,   sw: 31},
+    {marble: 0,  w: 23,   nw: 16,   ne: 17,   e: 25,   se: 33,   sw: 32},
+    {marble: 0,  w: 24,   nw: 17,   ne: null, e: null, se: 34,   sw: 33},
     {marble: 0,  w: null, nw: null, ne: 18,   e: 27,   se: 35,   sw: null},
     {marble: 0,  w: 26,   nw: 18,   ne: 19,   e: 28,   se: 36,   sw: 35},
     {marble: 0,  w: 27,   nw: 19,   ne: 20,   e: 29,   se: 37,   sw: 36},
@@ -80,7 +80,7 @@ function initBoard() {
     {marble: -1, w: 56,   nw: 51,   ne: 52,   e: 58,   se: null, sw: null},
     {marble: -1, w: 57,   nw: 52,   ne: 53,   e: 59,   se: null, sw: null},
     {marble: -1, w: 58,   nw: 53,   ne: 54,   e: 60,   se: null, sw: null},
-    {marble: -1,   w: 59,   nw: 54,   ne: 55,   e: null, se: null, sw: null}
+    {marble: -1, w: 59,   nw: 54,   ne: 55,   e: null, se: null, sw: null}
   ];
 }
 
@@ -127,9 +127,6 @@ function getTail() {
   return ['e', 'se', 'sw'].includes(direction) ? 0 : selectedMarbles.length - 1;
 }
 
-
-
-
 function possibleMoveDirections() {
   return directions.filter(function(dir) {
     return canMarblesMove(dir);
@@ -142,25 +139,36 @@ function canMarblesMove(dir) {
   });
 };
 
-
-
-function possibleShoveDirections() {
+function nearbyEnemies() {
   return directions.filter(function(dir) {
-    return canMarblesShove(dir);
+    return isThereAnEnemyAdjacent(dir);
   });
 }
 
-function canMarblesShove(dir) {
+function isThereAnEnemyAdjacent(dir) {
   return selectedMarbles.every(function(m) {
     return (board[m][dir] && board[board[m][dir]].marble === (whoseTurn * (-1))) || selectedMarbles.includes(board[m][dir]);
   });
 };
 
+function canIShove() {
+  var validShoveMoves = [];
+  enemyDirsArray = nearbyEnemies();
+  var lastMarble = board[selectedMarbles[(selectedMarbles.length - 1)]];
+  enemyDirsArray.forEach(function(dir) {
+    var targetObj = board[lastMarble[dir]];
+    var enemyBattleLines = 1;
 
-
-
-
-
+    for (var i = 0; i < 3; i++) {
+      if(board[targetObj[dir]].marble === (whoseTurn * -1)) {
+          enemyBattleLines ++;
+          targetObj = board[targetObj[dir]];
+      } else if (targetObj[dir].marble === null || targetObj[dir].marble === undefined) {
+          console.log(dir + 'you can push');
+      }
+    }
+  });
+}
 
 function findValidMarbles(index) {
   valids = [];
@@ -194,21 +202,6 @@ function findOpenCellsClasses(arr) {
     return "";
   }
 }
-
-// function shoveMarbles() {
-
-// find the two relationships the marbles have to each other
-// look at the endmost marbles
-// count one more space beyond each endpoint
-// if that is an enemy
-// check one more space beyond that
-// if it's open,  and selected marbles > 1, return true
-// if it has an enemy
-//   look one more space beyond that
-// if it's open and selectedMarbles > 2, return true
-
-
-// }
 
 
 
@@ -254,14 +247,10 @@ function renderArrows() {
   if (selectedMarbles.length > 0) {
     $(nearbyOpenCells).show();
   };
+  // function turnArrowRed() {
+  //   $('se').css('color', 'red');
+  // }
 };
-
-function turnArrowRed() {
-  console.log(dir);
- $('.' + 'se').css('color', 'red');
- console.log(this);
-}
-
 function renderBoard() {
   board.forEach(function(cell, idx) {
     var $cellEl = $('[index="' + idx + '"]');
