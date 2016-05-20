@@ -202,6 +202,7 @@ function canIShove() {
               validShoveDirs.push(dir);
             }
           }
+          console.log(canShove)
           if ( ["w","nw","ne"].indexOf(dir) > -1) {
             if (board[northTargetObj[dir]] && board[northTargetObj[dir]].marble === 0) {
               console.log('there is an open space on the other side of your enemy to the ' + dir);

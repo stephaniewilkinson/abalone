@@ -9,6 +9,10 @@ body {
   color: #2e0927;
 }
 
+h1, h2 {
+  display: inline;
+}
+
 .jumble, .tilt {
   cursor: pointer;
   color: #2e0927;
@@ -55,7 +59,7 @@ body {
 .rose {
   cursor: pointer;
   position: absolute;
-  top: 140px;
+  top: 170px;
   color: #2e0927;
 
 }
