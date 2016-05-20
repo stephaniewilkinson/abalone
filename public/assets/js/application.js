@@ -227,7 +227,12 @@ function findOpenCellsClasses(arr) {
 
 //reverse the array depending ont he direction
 function moveMarbles() {
+
   selectedMarbles.forEach(function(marbleIdx) {
+      if (direction === sw || direction === se || direction === w) {
+    console.log('yay');
+  };
+
     var nextIndex = board[marbleIdx][direction];
     board[nextIndex].marble = board[marbleIdx].marble;
     board[marbleIdx].marble = 0;

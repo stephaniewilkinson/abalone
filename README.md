@@ -34,9 +34,11 @@ None.
 
 ## Credits
 
-+ havenwood
-+ jim
-+ kyle
-+ adrian
-+ earnagram
-+ pjhughes
+
++ [jim](https://github.com/jim-clark)
++ [kyle](https://github.com/kylefberg)
++ [adrian](https://github.com/ishmaru)
++ [ezra](https://github.com/earnagram)
++ [phil](https://github.com/h4w5)
+
++ [havenwood](https://github.com/havenwood)
