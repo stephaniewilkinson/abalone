@@ -1,6 +1,7 @@
 # Abalone
 
-A playable, in-browser version of the strategy game [Abalone](https://en.wikipedia.org/wiki/Abalone_(board_game). 
+A playable, in-browser version of the strategy game [Abalone](https://en.wikipedia.org/wiki/Abalone_(board_game)). 
+Deployed on firebase for multi-player enjoyment using firebase dB.
 
 ## Features
 
@@ -9,8 +10,8 @@ A playable, in-browser version of the strategy game [Abalone](https://en.wikiped
 ## Anti-features
 The game does not include the following features, but pull requests are welcome.
 
-+ No timer
-+ No AI
++ Countdown timer
++ AI
 
 ## Requirements
 None.
@@ -29,7 +30,7 @@ None.
 + http://entertainment.howstuffworks.com/leisure/brain-games/abalone2.htm 
 + http://www.cs.nott.ac.uk/~pszeo/docs/publications/ABLA_id136final.pdf 
 
-## (Rules)[http://www.gamerz.net/pbmserv/abalone.html]
+## [Rules](http://www.gamerz.net/pbmserv/abalone.html)
 
 ## Credits
 
@@ -40,3 +41,4 @@ None.
 + [ezra](https://github.com/earnagram)
 + [phil](https://github.com/h4w5)
 + [havenwood](https://github.com/havenwood)
++ [rob](https://github.com/robawilkinson)
