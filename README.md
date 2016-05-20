@@ -1,23 +1,29 @@
-<!-- MarkdownTOC -->
-
-- Abalone
-    - Features
-    - Anti-features
-    - Requirements
-    - Alternatives
-    - Tools & Technologies
-    - Design Approach
-    - References
-    - Rules
-    - Screenshot
-    - Development
-    - Credits
-    - Next steps for further iterations
-
-<!-- /MarkdownTOC -->
+## Table of contents
 
 
-# Abalone
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+	- [Table of contents](#table-of-contents)
+	- [Abalone](#abalone)
+	- [Features](#features)
+	- [Anti-features](#anti-features)
+	- [Requirements](#requirements)
+	- [Alternatives](#alternatives)
+	- [Tools & Technologies](#tools-technologies)
+	- [Design Approach](#design-approach)
+	- [References](#references)
+	- [[Rules](http://www.gamerz.net/pbmserv/abalone.html)](#ruleshttpwwwgamerznetpbmservabalonehtml)
+	- [Screenshot](#screenshot)
+	- [Development](#development)
+		- [Initial concept](#initial-concept)
+	- [Credits](#credits)
+	- [Next steps for further iterations](#next-steps-for-further-iterations)
+
+<!-- /TOC -->
+
+
+
+## Abalone
 
 A playable, in-browser version of the strategy game [Abalone](https://en.wikipedia.org/wiki/Abalone_(board_game)).  
 
@@ -58,12 +64,12 @@ Another facet of the user experience design is the highlighted marbles to show v
 
 ## References
 
-+ http://entertainment.howstuffworks.com/leisure/brain-games/abalone2.htm 
-+ http://www.cs.nott.ac.uk/~pszeo/docs/publications/ABLA_id136final.pdf 
++ http://entertainment.howstuffworks.com/leisure/brain-games/abalone2.htm
++ http://www.cs.nott.ac.uk/~pszeo/docs/publications/ABLA_id136final.pdf
 
 ## [Rules](http://www.gamerz.net/pbmserv/abalone.html)
 
-## Screenshot 
+## Screenshot
 ![Screenshot](public/assets/img/screenshot.png "Abalone board game")
 
 ## Development
@@ -87,5 +93,3 @@ Thanks to these developers for their contributions.
 ## Next steps for further iterations
 + Animation for moving marbles around
 + Deselect marbles
-
-
