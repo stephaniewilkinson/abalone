@@ -5,7 +5,6 @@ A playable, in-browser version of the strategy game [Abalone](https://en.wikiped
 ## Features
 
 + Functions just like the board game, with lateral moves of strings of marbles.
-+ 
 
 ## Anti-features
 The game does not include the following features, but pull requests are welcome.
@@ -27,10 +26,10 @@ None.
 
 ## References
 
-+ http://entertainment.howstuffworks.com/leisure/brain-games/abalone2.htm  
-+ http://www.cs.nott.ac.uk/~pszeo/docs/publications/ABLA_id136final.pdf  
++ http://entertainment.howstuffworks.com/leisure/brain-games/abalone2.htm 
++ http://www.cs.nott.ac.uk/~pszeo/docs/publications/ABLA_id136final.pdf 
 
-  
+## (Rules)[http://www.gamerz.net/pbmserv/abalone.html]
 
 ## Credits
 
@@ -40,5 +39,4 @@ None.
 + [adrian](https://github.com/ishmaru)
 + [ezra](https://github.com/earnagram)
 + [phil](https://github.com/h4w5)
-
 + [havenwood](https://github.com/havenwood)
