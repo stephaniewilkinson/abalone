@@ -87,10 +87,10 @@ function initBoard() {
 });
 
 db.on('value', function(dataSnapshot) {
-  board = dataSnapshot.val().board
-  whoseTurn = dataSnapshot.val().whoseTurn
-  renderBoard()
-})
+  board = dataSnapshot.val().board;
+  whoseTurn = dataSnapshot.val().whoseTurn;
+  renderBoard();
+});
 }
 
 var initializeGame = function() {
@@ -99,13 +99,13 @@ var initializeGame = function() {
   selectedMarbles = [];
   initBoard();
   renderBoard();
-}
+};
 
 function jumbleBoard() {
   board.forEach(function(idx) {
     idx.marble = owners[Math.floor(Math.random() * 5)];
   });
-};
+}
 
 
 ////////
@@ -115,19 +115,19 @@ function jumbleBoard() {
 // gets the irection of the top of the row
 function getTopDir() {
   var cell2 = board[selectedMarbles[1]];
-  if (cell2.nw === selectedMarbles[0]) return 'nw';
-  if (cell2.ne === selectedMarbles[0]) return 'ne';
-  if (cell2.w === selectedMarbles[0]) return 'w';
-};
+  if (cell2.nw === selectedMarbles[0]) {return 'nw';}
+  if (cell2.ne === selectedMarbles[0]) {return 'ne';}
+  if (cell2.w === selectedMarbles[0]) {return 'w';}
+}
 
 // gets the opposite of the top dir
 function getOppDir(dir) {
-  if (dir === 'nw') return 'se';
-  if (dir === 'ne') return 'sw';
-  if (dir === 'e') return 'w';
-  if (dir === 'se') return 'nw';
-  if (dir === 'sw') return 'ne';
-  if (dir === 'w') return 'e';
+  if (dir === 'nw') {return 'se';}
+  if (dir === 'ne') {return 'sw';}
+  if (dir === 'e') {return 'w';}
+  if (dir === 'se') {return 'nw';}
+  if (dir === 'sw') {return 'ne';}
+  if (dir === 'w') {return 'e';}
 }
 
 function getCellIndex(el) {
@@ -144,7 +144,7 @@ function canMarblesMove(dir) {
   return selectedMarbles.every(function(m) {
     return (board[m][dir] && board[board[m][dir]].marble === 0) || selectedMarbles.includes(board[m][dir]);
   });
-};
+}
 
 function nearbyEnemies() {
   return directions.filter(function(dir) {
@@ -156,7 +156,7 @@ function isThereAnEnemyAdjacent(dir) {
   return selectedMarbles.every(function(m) {
     return (board[m][dir] != null && board[board[m][dir]].marble === (whoseTurn * (-1))) || selectedMarbles.includes(board[m][dir]);
   });
-};
+}
 
 function rightSouthMostMarble() {
   return board[selectedMarbles[(selectedMarbles.length - 1)]];
@@ -168,7 +168,8 @@ function objInDir(thisMarble, dir) {
 
 function leftNorthMostMarble() {
   return board[selectedMarbles[0]]
-}
+};
+
 function canIShove() {
   if (selectedMarbles.length > 1) {
     var canShove = true;
@@ -201,7 +202,6 @@ function canIShove() {
               validShoveDirs.push(dir);
             }
           }
-          console.log(canShove)
           if ( ["w","nw","ne"].indexOf(dir) > -1) {
             if (board[northTargetObj[dir]] && board[northTargetObj[dir]].marble === 0) {
               console.log('there is an open space on the other side of your enemy to the ' + dir);
@@ -232,12 +232,12 @@ function findValidMarbles(index) {
   valids = [];
   if (selectedMarbles.length === 1) {
     var cell = board[index];
-    if (board[(cell.nw)] && board[(cell.nw)].marble === whoseTurn) valids.push(cell.nw);
-    if (board[(cell.ne)] && board[(cell.ne)].marble === whoseTurn && board[(cell.ne)]) valids.push(cell.ne);
-    if (board[(cell.e)] && board[(cell.e)].marble === whoseTurn) valids.push(cell.e);
-    if (board[(cell.se)] && board[(cell.se)].marble === whoseTurn) valids.push(cell.se);
-    if (board[(cell.sw)] && board[(cell.sw)].marble === whoseTurn) valids.push(cell.sw);
-    if (board[(cell.w)] && board[(cell.w)].marble === whoseTurn) valids.push(cell.w);
+    if (board[(cell.nw)] && board[(cell.nw)].marble === whoseTurn) {valids.push(cell.nw);}
+    if (board[(cell.ne)] && board[(cell.ne)].marble === whoseTurn && board[(cell.ne)]) {valids.push(cell.ne);}
+    if (board[(cell.e)] && board[(cell.e)].marble === whoseTurn) {valids.push(cell.e);}
+    if (board[(cell.se)] && board[(cell.se)].marble === whoseTurn) {valids.push(cell.se);}
+    if (board[(cell.sw)] && board[(cell.sw)].marble === whoseTurn) {valids.push(cell.sw);}
+    if (board[(cell.w)] && board[(cell.w)].marble === whoseTurn) {valids.push(cell.w);}
   } else if (selectedMarbles.length === 2) {
     var dir = getTopDir();
 

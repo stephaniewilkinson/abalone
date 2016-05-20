@@ -3,8 +3,6 @@
 A playable, in-browser version of the strategy game [Abalone](https://en.wikipedia.org/wiki/Abalone_(board_game)). 
 [Deployed on firebase for multi-player enjoyment using firebase dB.](https://abalone-game.firebaseapp.com/)
 
-
-![Abalone Game](public/assets/img/abalone.jpeg "Abalone board game")
 ## Features
 
 + Functions just like the board game, with lateral moves of strings of marbles.
@@ -48,3 +46,5 @@ Thanks to these developers for their contributions.
 + [phil](https://github.com/h4w5)
 + [havenwood](https://github.com/havenwood)
 + [rob](https://github.com/robawilkinson)
+
+![Abalone Game](public/assets/img/abalone.jpeg "Abalone board game")
